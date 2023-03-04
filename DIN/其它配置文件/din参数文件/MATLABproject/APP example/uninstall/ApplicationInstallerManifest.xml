@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInstallerManifest>
+   <DefaultInstallationDirectory>%ProgramFiles%\app1\</DefaultInstallationDirectory>
+   <ApplicationName>app1</ApplicationName>
+   <ExecutableName>application\app1.exe</ExecutableName>
+   <GUID>21dc61a8-1096-4e64-ac2d-5b6cc4e89c22</GUID>
+   <ApplicationIcon>default_icon_48.png</ApplicationIcon>
+   <Logo>default_logo.png</Logo>
+   <Version>1.0</Version>
+   <AddRemoveProgramIcon>application\default_icon.ico</AddRemoveProgramIcon>
+   <WelcomePanelText>app1 1.0</WelcomePanelText>
+   <MCRProducts>
+      <MCRProduct>
+         <ExternalProductIdentifier>35000</ExternalProductIdentifier>
+      </MCRProduct>
+      <MCRProduct>
+         <ExternalProductIdentifier>35010</ExternalProductIdentifier>
+      </MCRProduct>
+   </MCRProducts>
+</ApplicationInstallerManifest>

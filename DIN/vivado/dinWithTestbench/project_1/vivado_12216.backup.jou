@@ -1,0 +1,198 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Sun Aug 21 10:16:00 2022
+# Process ID: 12216
+# Current directory: D:/Vivado_project/test_ODIN5_9/project_1
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12180 D:\Vivado_project\test_ODIN5_9\project_1\project_1.xpr
+# Log file: D:/Vivado_project/test_ODIN5_9/project_1/vivado.log
+# Journal file: D:/Vivado_project/test_ODIN5_9/project_1\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/Vivado_project/test_ODIN5_9/project_1/project_1.xpr
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 6
+wait_on_run synth_1
+ipx::package_project -root_dir D:/Vivado_project/ip_package/odintop -vendor xilinx.com -library user -taxonomy /UserIP -import_files -set_current false
+ipx::unload_core d:/Vivado_project/ip_package/odintop/component.xml
+ipx::edit_ip_in_project -upgrade true -name tmp_edit_project -directory D:/Vivado_project/ip_package/odintop d:/Vivado_project/ip_package/odintop/component.xml
+current_project project_1
+current_project tmp_edit_project
+update_compile_order -fileset sources_1
+set_property core_revision 2 [ipx::current_core]
+ipx::update_source_project_archive -component [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+ipx::move_temp_component_back -component [ipx::current_core]
+close_project -delete
+set_property  ip_repo_paths  {d:/Vivado_project/ip_package/odintop d:/Vivado_project/TEST_project} [current_project]
+update_ip_catalog
+close_project
+open_project D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.xpr
+update_compile_order -fileset sources_1
+open_bd_design {D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/sources_1/bd/design_1/design_1.bd}
+update_ip_catalog -rebuild
+set_property  ip_repo_paths  d:/Vivado_project/ip_package [current_project]
+update_ip_catalog
+update_ip_catalog -rebuild
+regenerate_bd_layout
+regenerate_bd_layout
+validate_bd_design -force
+delete_bd_objs [get_bd_nets write_odin_0_data] [get_bd_nets ODIN_0_AERIN_ACK] [get_bd_nets write_odin_0_data_ap_vld] [get_bd_nets ODIN_0_AEROUT_ADDR] [get_bd_nets ODIN_0_AEROUT_REQ] [get_bd_nets read_odin_0_data_ap_ack] [get_bd_cells ODIN_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:SYSTEM_TOP:1.0 SYSTEM_TOP_0
+endgroup
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/zynq_ultra_ps_e_0/pl_clk0 (99 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins SYSTEM_TOP_0/CLK]
+delete_bd_objs [get_bd_nets zynq_ultra_ps_e_0_emio_spi0_m_o] [get_bd_nets ODIN_0_MISO] [get_bd_cells system_ila_0]
+startgroup
+set_property HDL_ATTRIBUTE.DEBUG false [get_bd_nets { rst_ps8_0_99M_peripheral_aresetn rst_ps8_0_99M_interconnect_aresetn zynq_ultra_ps_e_0_pl_resetn0 zynq_ultra_ps_e_0_pl_clk0 zynq_ultra_ps_e_0_emio_spi0_sclk_o rst_ps8_0_99M_peripheral_reset } ]
+endgroup
+startgroup
+set_property HDL_ATTRIBUTE.DEBUG false [get_bd_intf_nets { ps8_0_axi_periph_M00_AXI axi_smc_M00_AXI write_odin_0_m_axi_gmem zynq_ultra_ps_e_0_M_AXI_HPM0_LPD } ]
+endgroup
+regenerate_bd_layout
+connect_bd_net [get_bd_pins write_odin_0/data] [get_bd_pins SYSTEM_TOP_0/AERIN_ADDR]
+connect_bd_net [get_bd_pins SYSTEM_TOP_0/AERIN_REQ] [get_bd_pins write_odin_0/data_ap_vld]
+connect_bd_net [get_bd_pins SYSTEM_TOP_0/AERIN_ACK] [get_bd_pins write_odin_0/data_ap_ack]
+connect_bd_net [get_bd_pins SYSTEM_TOP_0/AEROUT_ADDR] [get_bd_pins read_odin_0/data]
+connect_bd_net [get_bd_pins SYSTEM_TOP_0/AEROUT_REQ] [get_bd_pins read_odin_0/data_ap_vld]
+connect_bd_net [get_bd_pins SYSTEM_TOP_0/AEROUT_ACK] [get_bd_pins read_odin_0/data_ap_ack]
+regenerate_bd_layout
+startgroup
+set_property -dict [list CONFIG.PSU__SPI0__PERIPHERAL__ENABLE {0}] [get_bd_cells zynq_ultra_ps_e_0]
+delete_bd_objs [get_bd_nets zynq_ultra_ps_e_0_emio_spi0_sclk_o] [get_bd_nets zynq_ultra_ps_e_0_emio_spi0_sclk_o]
+endgroup
+regenerate_bd_layout
+save_bd_design
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0
+endgroup
+set_property location {2 861 -73} [get_bd_cells clk_wiz_0]
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Clk {/zynq_ultra_ps_e_0/pl_clk0 (99 MHz)} Manual_Source {Auto}}  [get_bd_pins clk_wiz_0/clk_in1]
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Board_Interface {Custom} Manual_Source {New External Port (ACTIVE_HIGH)}}  [get_bd_pins clk_wiz_0/reset]
+endgroup
+startgroup
+set_property -dict [list CONFIG.PRIM_IN_FREQ.VALUE_SRC PROPAGATED] [get_bd_cells clk_wiz_0]
+set_property -dict [list CONFIG.PRIMITIVE {PLL} CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {20.000} CONFIG.CLKOUT1_DRIVES {Buffer} CONFIG.CLKOUT2_DRIVES {Buffer} CONFIG.CLKOUT3_DRIVES {Buffer} CONFIG.CLKOUT4_DRIVES {Buffer} CONFIG.CLKOUT5_DRIVES {Buffer} CONFIG.CLKOUT6_DRIVES {Buffer} CONFIG.CLKOUT7_DRIVES {Buffer} CONFIG.FEEDBACK_SOURCE {FDBK_AUTO} CONFIG.MMCM_BANDWIDTH {OPTIMIZED} CONFIG.MMCM_CLKFBOUT_MULT_F {8} CONFIG.MMCM_COMPENSATION {AUTO} CONFIG.MMCM_CLKOUT0_DIVIDE_F {40} CONFIG.CLKOUT1_JITTER {200.312} CONFIG.CLKOUT1_PHASE_ERROR {114.212}] [get_bd_cells clk_wiz_0]
+endgroup
+connect_bd_net [get_bd_pins SYSTEM_TOP_0/SCK] [get_bd_pins clk_wiz_0/clk_out1]
+save_bd_design
+regenerate_bd_layout
+delete_bd_objs [get_bd_nets reset_rtl_1]
+delete_bd_objs [get_bd_ports reset_rtl]
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Board_Interface {Custom} Manual_Source {New External Port (ACTIVE_HIGH)}}  [get_bd_pins clk_wiz_0/reset]
+delete_bd_objs [get_bd_nets reset_rtl_1]
+delete_bd_objs [get_bd_ports reset_rtl]
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Board_Interface {reset ( FPGA Reset ) } Manual_Source {New External Port (ACTIVE_HIGH)}}  [get_bd_pins clk_wiz_0/reset]
+delete_bd_objs [get_bd_nets reset_1] [get_bd_ports reset]
+startgroup
+set_property -dict [list CONFIG.RESET_BOARD_INTERFACE {Custom} CONFIG.OVERRIDE_MMCM {false}] [get_bd_cells clk_wiz_0]
+endgroup
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Board_Interface {Custom} Manual_Source {New External Port (ACTIVE_HIGH)}}  [get_bd_pins clk_wiz_0/reset]
+delete_bd_objs [get_bd_nets reset_rtl_1]
+delete_bd_objs [get_bd_ports reset_rtl]
+startgroup
+set_property -dict [list CONFIG.RESET_BOARD_INTERFACE {reset}] [get_bd_cells clk_wiz_0]
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:util_vector_logic:2.0 util_vector_logic_0
+endgroup
+set_property -dict [list CONFIG.C_SIZE {1} CONFIG.C_OPERATION {not} CONFIG.LOGO_FILE {data/sym_notgate.png}] [get_bd_cells util_vector_logic_0]
+set_property location {1 314 387} [get_bd_cells util_vector_logic_0]
+connect_bd_net [get_bd_pins util_vector_logic_0/Op1] [get_bd_pins zynq_ultra_ps_e_0/pl_resetn0]
+connect_bd_net [get_bd_pins util_vector_logic_0/Res] [get_bd_pins clk_wiz_0/reset]
+regenerate_bd_layout
+save_bd_design
+close_bd_design [get_bd_designs design_1]
+close_project
+open_project D:/Vivado_project/test_ODIN5_9/project_1/project_1.xpr
+update_compile_order -fileset sources_1
+close_project
+open_project D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.xpr
+update_compile_order -fileset sources_1
+open_bd_design {D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/sources_1/bd/design_1/design_1.bd}
+disconnect_bd_net /rst_ps8_0_99M_peripheral_aresetn [get_bd_pins SYSTEM_TOP_0/RST]
+startgroup
+set_property -dict [list CONFIG.C_SIZE {2}] [get_bd_cells util_vector_logic_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.C_SIZE {1} CONFIG.C_OPERATION {not} CONFIG.LOGO_FILE {data/sym_notgate.png}] [get_bd_cells util_vector_logic_0]
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:util_vector_logic:2.0 util_vector_logic_1
+endgroup
+set_property location {3 1138 719} [get_bd_cells util_vector_logic_1]
+set_property -dict [list CONFIG.C_SIZE {1} CONFIG.C_OPERATION {not} CONFIG.LOGO_FILE {data/sym_notgate.png}] [get_bd_cells util_vector_logic_1]
+set_property location {3 1203 646} [get_bd_cells util_vector_logic_1]
+connect_bd_net [get_bd_pins clk_wiz_0/locked] [get_bd_pins util_vector_logic_1/Op1]
+connect_bd_net [get_bd_pins util_vector_logic_1/Res] [get_bd_pins SYSTEM_TOP_0/RST]
+regenerate_bd_layout
+save_bd_design
+validate_bd_design
+save_bd_design
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+delete_bd_objs [get_bd_nets util_vector_logic_0_Res] [get_bd_cells util_vector_logic_0]
+connect_bd_net [get_bd_pins clk_wiz_0/reset] [get_bd_pins rst_ps8_0_99M/peripheral_reset]
+save_bd_design
+export_ip_user_files -of_objects  [get_files D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/constrs_1/new/d1.xdc] -no_script -reset -force -quiet
+remove_files  -fileset constrs_1 D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/constrs_1/new/d1.xdc
+regenerate_bd_layout
+regenerate_bd_layout
+generate_target all [get_files  D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/sources_1/bd/design_1/design_1.bd]
+catch { config_ip_cache -export [get_ips -all design_1_axi_smc_0] }
+catch { config_ip_cache -export [get_ips -all design_1_auto_ds_0] }
+catch { config_ip_cache -export [get_ips -all design_1_auto_pc_0] }
+export_ip_user_files -of_objects [get_files D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/sources_1/bd/design_1/design_1.bd]
+export_simulation -of_objects [get_files D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/sources_1/bd/design_1/design_1.bd] -directory D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.ip_user_files/sim_scripts -ip_user_files_dir D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.ip_user_files -ipstatic_source_dir D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.cache/compile_simlib/modelsim} {questa=D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.cache/compile_simlib/questa} {riviera=D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.cache/compile_simlib/riviera} {activehdl=D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+wait_on_run impl_1
+write_hw_platform -fixed -include_bit -force -file D:/Vivado_project/odinDDR/odin_ddr/design_1_wrapper.xsa
+regenerate_bd_layout
+set_property HDL_ATTRIBUTE.DEBUG true [get_bd_nets {write_odin_0_data }]
+set_property HDL_ATTRIBUTE.DEBUG true [get_bd_nets {write_odin_0_data_ap_vld }]
+set_property HDL_ATTRIBUTE.DEBUG true [get_bd_nets {SYSTEM_TOP_0_AERIN_ACK }]
+save_bd_design
+set_property HDL_ATTRIBUTE.DEBUG true [get_bd_nets {rst_ps8_0_99M_peripheral_aresetn }]
+set_property HDL_ATTRIBUTE.DEBUG true [get_bd_nets {zynq_ultra_ps_e_0_pl_clk0 }]
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:debug -dict [list \
+                                                          [get_bd_nets rst_ps8_0_99M_peripheral_aresetn] {PROBE_TYPE "Data and Trigger" CLK_SRC "/zynq_ultra_ps_e_0/pl_clk0" SYSTEM_ILA "Auto" } \
+                                                          [get_bd_nets SYSTEM_TOP_0_AERIN_ACK] {PROBE_TYPE "Data and Trigger" CLK_SRC "/zynq_ultra_ps_e_0/pl_clk0" SYSTEM_ILA "Auto" } \
+                                                          [get_bd_nets write_odin_0_data] {PROBE_TYPE "Data and Trigger" CLK_SRC "/zynq_ultra_ps_e_0/pl_clk0" SYSTEM_ILA "Auto" } \
+                                                          [get_bd_nets write_odin_0_data_ap_vld] {PROBE_TYPE "Data and Trigger" CLK_SRC "/zynq_ultra_ps_e_0/pl_clk0" SYSTEM_ILA "Auto" } \
+                                                          [get_bd_nets zynq_ultra_ps_e_0_pl_clk0] {PROBE_TYPE "Data and Trigger" CLK_SRC "None (Connect manually)" SYSTEM_ILA "Auto" } \
+                                                         ]
+endgroup
+delete_bd_objs [get_bd_cells system_ila_1]
+startgroup
+set_property HDL_ATTRIBUTE.DEBUG false [get_bd_nets { zynq_ultra_ps_e_0_pl_clk0 } ]
+endgroup
+startgroup
+set_property -dict [list CONFIG.C_DATA_DEPTH {2048} CONFIG.C_EN_STRG_QUAL {1} CONFIG.C_ADV_TRIGGER {true} CONFIG.C_PROBE3_MU_CNT {2} CONFIG.C_PROBE2_MU_CNT {2} CONFIG.C_PROBE1_MU_CNT {2} CONFIG.C_PROBE0_MU_CNT {2} CONFIG.ALL_PROBE_SAME_MU_CNT {2}] [get_bd_cells system_ila_0]
+endgroup
+delete_bd_objs [get_bd_cells system_ila_0]
+create_bd_cell -type ip -vlnv xilinx.com:ip:ila:6.2 ila_0
+set_property -dict [list CONFIG.C_PROBE3_WIDTH {32} CONFIG.C_DATA_DEPTH {2048} CONFIG.C_NUM_OF_PROBES {4} CONFIG.C_EN_STRG_QUAL {1} CONFIG.C_ADV_TRIGGER {true} CONFIG.C_PROBE3_MU_CNT {2} CONFIG.C_PROBE2_MU_CNT {2} CONFIG.C_PROBE1_MU_CNT {2} CONFIG.C_PROBE0_MU_CNT {2} CONFIG.ALL_PROBE_SAME_MU_CNT {2} CONFIG.C_ENABLE_ILA_AXI_MON {false} CONFIG.C_MONITOR_TYPE {Native}] [get_bd_cells ila_0]
+connect_bd_net [get_bd_pins ila_0/clk] [get_bd_pins zynq_ultra_ps_e_0/pl_clk0]
+connect_bd_net [get_bd_pins ila_0/probe0] [get_bd_pins write_odin_0/data_ap_vld]
+connect_bd_net [get_bd_pins ila_0/probe3] [get_bd_pins write_odin_0/data]
+connect_bd_net [get_bd_pins ila_0/probe1] [get_bd_pins SYSTEM_TOP_0/AERIN_ACK]
+connect_bd_net [get_bd_pins ila_0/probe2] [get_bd_pins rst_ps8_0_99M/peripheral_aresetn]
+regenerate_bd_layout
+save_bd_design
+startgroup
+set_property -dict [list CONFIG.C_TRIGOUT_EN {false} CONFIG.C_INPUT_PIPE_STAGES {3} CONFIG.C_TRIGIN_EN {false}] [get_bd_cells ila_0]
+endgroup
+regenerate_bd_layout
+set_property location {3 1187 495} [get_bd_cells write_odin_0]
+regenerate_bd_layout
+update_ip_catalog -rebuild -scan_changes

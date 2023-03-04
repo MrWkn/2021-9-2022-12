@@ -1,0 +1,448 @@
+#include "sleep.h"
+#include <string.h>
+#include <stdio.h>
+#include "xil_types.h"
+#include "xstatus.h"
+#include "xil_testmem.h"
+#include "xil_printf.h"
+#include <stdlib.h>
+#include <xil_cache.h>
+#include "platform.h"
+#include "xparameters.h"
+#include "ff.h"
+#include "xsend.h"
+#include "xodinsigs.h"
+#include <time.h>
+#include "ffconf.h"
+#include "xspips.h"
+#include<math.h>
+XSend XSend_intsance;
+XOdinsigs XOdinsigs_intsance;
+XSpiPs Spi0;
+
+#define SpiPs_RecvByte(BaseAddress) (u8)XSpiPs_In32((BaseAddress) + XSPIPS_RXD_OFFSET)
+#define SpiPs_SendByte(BaseAddress, Data) XSpiPs_Out32((BaseAddress) + XSPIPS_TXD_OFFSET, Data)
+
+int spi0_init();
+void spi26R(char *filePath);
+void SpiRead(int ByteCount);
+void SpiWrite(int *Sendbuffer, int ByteCount);
+void spiwriteWeight(char *filePath);
+void spiReadWeight(char *filePath);
+
+void readDataFromSD();
+void openWeightFile();
+//------------------------读取sd数据到ddr    所需变量
+int * ps_ptr;
+int readloc=0;
+int currentEvent=0;
+char Buf[17];
+int ptrindex = 0;
+int fileByteNum;
+int eventNum=0;
+int totalEventNum=0;
+//------------------------写入输出数据到sd卡    所需变量
+		/*odin输出事件 这里用数组接受 然后写入文件 接下来创建数组 (注意数组类型)
+		 int collectEvent[5000]={}; //这个数组太大，造成printf无法显示*/
+int ps_ptro[500]={0};
+int writeloc=0;
+int progress=0;
+int postneur=0;
+char *strRN="\n";
+//------------------------spi初始配置 所需变量  默认允许sdsp
+u8 spiBuf[40];
+u8 ReadBuffer[40];
+//------------------------fatfs文件系统操作  所需变量
+FATFS fatfs;//文件系统
+TCHAR *Path = "0:/";//使用逻辑磁盘0
+FRESULT Res;
+FIL fil;//文件存储输入数据
+FIL fil2;//文件存储输出
+FIL fil3;//读取权重
+char spiParamTrain[32]="0:/spiparam.txt";
+char spiParamTest[32]="0:/spiTest.txt";
+char spiwriteWPath[32]="0:/spiwriteWeight.txt";
+char spireadWPath[32]="0:/spireadWeight.txt";
+char spisaveWPath[32]="0:/trainnedW.txt";
+
+//  【训练/测试  需要修改】：
+int test=0;
+char FilePath[32] = "0:/trainImage.txt";
+char FilePath2[32] = "0:/trainSpikes.txt";
+//int test=1;
+//char FilePath[32] = "0:/testImage.txt";
+//char FilePath2[32] = "0:/testSpikes.txt";
+int main()
+{
+	init_platform();
+	print("----------------------------------0.SPI配置---------------------------------------------------------\n");
+	spi0_init();  //放到外面去
+	if(test==0){
+		spi26R(spiParamTrain);
+	}
+	if(test==1){
+		spiwriteWeight(spiwriteWPath);
+		spi26R(spiParamTest);
+	}
+	print("----------------------------------1.从SD卡读取数据 输入ODIN-------------------------------------------\n");
+	printf("file operation start\n");
+	readDataFromSD();
+	printf("file operation end\n");
+	printf("----------------------------------2.打开写入文件    准备写入数据-----------------------------------------\n");
+	f_open(&fil2, FilePath2, FA_CREATE_ALWAYS | FA_WRITE);//打开文件，取得写入权限，如果文件不存在则新建文件
+	f_lseek(&fil2, 0);//文件指针移至文件头
+	printf("----------------------------------3.开始运行ODIN-----------------------------------------------------\n");
+	if(XSend_Initialize(&XSend_intsance, XPAR_XSEND_0_DEVICE_ID)!=XST_SUCCESS){
+			printf("Initialize filed!\n");
+			return -1;
+	}
+	if(XOdinsigs_Initialize(&XOdinsigs_intsance, XPAR_XODINSIGS_0_DEVICE_ID)!=XST_SUCCESS){
+		printf("Initialize filed!\n");
+		return -1;
+	}
+	//如果不初始化，那么无法 set get
+	printf("Initialize SUCCESS!\n");
+	XSend_DisableAutoRestart(&XSend_intsance);//不能同时叫两个ip同时启动，否则会出现时序混乱。
+	XOdinsigs_EnableAutoRestart(&XOdinsigs_intsance);  //允许自动启动是很重要的，需要理解，因为不加这一句代码有时候就错
+	XOdinsigs_Start(&XOdinsigs_intsance);
+	printf("----------------------train/test start----------------------\n");
+	while(1){
+		eventNum = eventNum + 256;//每次处理一张图片
+		if(eventNum == totalEventNum){//打印显示当前处理到哪里
+			printf("evenths = %d % \n",(totalEventNum));
+		}
+		if(eventNum>totalEventNum){
+			break;
+		}
+		//下面是一张图片一个时间步的处理代码  处理完成后 需要保存结果
+		writeloc=0;
+		while(readloc<eventNum){
+			XSend_Set_read_loc(&XSend_intsance,readloc);
+			XSend_Set_data_ptr(&XSend_intsance,ps_ptr);
+			XSend_Start(&XSend_intsance);
+			/*
+			printf("pre-neuron index  :  %d \n",readloc);
+			while(!XSend_IsDone(&XSend_intsance)){  这句不能随便加，加上就会错！！！
+				printf("sending...");	//当上一个事件使突触后神经元激发脉冲，当这个脉冲没有被接收完时，就会卡着下一个事件的传输。
+			}*/
+			currentEvent = ps_ptr[readloc];
+			currentEvent = currentEvent & 255;
+			if(XSend_Get_return(&XSend_intsance)==1){  //return 1 表示又完成了一个事件的握手  , odin会继续处理这次传输的事件
+				//当前输入事件（两种）被全部处理完     这里才可以读取下一个输入事件  即readloc++
+				//A.tref事件：直接readloc++即可    	//B.neuron事件：需要接收256个神经元产生的新的spike event
+				if(currentEvent==7){// B neuron event
+					//需要控制collect ip 开始 检测 输出是否发起请求
+					while(1){
+						//XOdinsigs_Start(&XOdinsigs_intsance);
+						if(XOdinsigs_Get_req_o(&XOdinsigs_intsance)!=0){  //为什么接收不到req的值？
+							ps_ptro[writeloc] = XOdinsigs_Get_addr_o(&XOdinsigs_intsance);//为什么get不到呢
+							writeloc++;
+							XOdinsigs_Set_ack_o(&XOdinsigs_intsance,1);   //轮询检测请求是否将为低电平
+							//一旦输出端发起请求，必须将应答置为1。且必须接收到req=0,然后将ack置为0，最后才能退出循环
+							while(1){
+								if(XOdinsigs_Get_req_o(&XOdinsigs_intsance)==0){
+									XOdinsigs_Set_ack_o(&XOdinsigs_intsance,0);
+									break;
+								}
+							}
+						}else{
+								//printf("\t post neuron index= %d",XOdinsigs_Get_postneuron(&XOdinsigs_intsance));
+								//printf("-------------last fired neuron=%d \n",ps_ptro[writeloc-1]);//看看当前外部输入事件有没有被全部处理完
+							break;
+						}
+					}
+				} //if(currentEvent==7)
+				readloc++;
+			} //if(XSend_Get_return(&XSend_intsance)==1)   这句判断有没有加的必要
+		}//while  处理完了一张图片  下面将结果保存起来：
+		//写入数据  写入的数据就是 ps_ptro[]
+		//	char strSpace=" ";   char *strRN="\r\n";
+		for(int i=0;i<writeloc-1;i++){   //不需要将ps_ptro置为0 因为根据writeloc来写的
+			f_printf(&fil2,"%d,",ps_ptro[i]);
+		}
+		f_printf(&fil2,"%d",ps_ptro[writeloc-1]); //最后一个数不加逗号","
+		//全部写完之后就写入换行 每张图片放在一行里面
+		f_printf(&fil2,"%s",strRN);
+		/**	FILE_SYSTEM_READ_ONLY;  FILE_SYSTEM_USE_STRFUNC;
+			 * f_putc 函数当 (_FS_READONLY == 0)&&(_USE_STRFUNC == 1 || _USE_STRFUNC == 2) 时可用。
+			 * 当_USE_STRFUNC == 2 时，字符 '\n' 被转换为 "\r\n" 写入文件中。
+			 * */
+	}
+	//全部写完之后 就可以 关闭文件  数据由cache全部移至磁盘？
+	printf("----------------------train/test end----------------------\n");
+	f_close(&fil2);
+	spiReadWeight(spireadWPath);
+	printf("read trainned weight finish.\n");
+	free(ps_ptr);
+	ps_ptr=NULL;
+	f_mount(NULL,Path,1);
+    return 0;
+}//修改代码后需要手动 build project
+
+void readDataFromSD(){
+	Res = f_mount(&fatfs, Path, 0);  //挂载逻辑磁盘0至当前文件系统变量
+	Res = f_open(&fil, FilePath, FA_READ);  //FilePath是全局变量
+	if (Res != FR_OK)//打开文件失败
+	{
+		printf("Fail to open file\n\r");
+		return -1;
+	}
+	Res = f_lseek(&fil, 0);
+	fileByteNum=f_size(&fil);
+	totalEventNum=fileByteNum/(17+2);  //+2 means \r\n
+	ps_ptr=(volatile int *)malloc(sizeof(int)*totalEventNum);
+	memset((void*)ps_ptr,0,totalEventNum*sizeof(float));
+	//文件指针移至文件头
+	Res = f_lseek(&fil, 0);
+	//读文件
+	memset(Buf, 0, 17);//清空Buf内存空间为全0
+	UINT NumBytesRead;
+	int templocal=0;
+	while(ptrindex<totalEventNum){
+		f_read(&fil,(void*)Buf,17,&NumBytesRead); // char类型是1 字节
+		ps_ptr[ptrindex++]=strtol(Buf,NULL,2);  //将二进制数转换为10进制存到内存中
+		templocal=f_tell(&fil)+2; //获取下一行的指针位置
+		f_lseek(&fil,templocal);
+	}
+	// 关闭文件
+	f_close(&fil);
+}
+
+void SpiRead(int ByteCount)
+{
+	int Count;
+	u32 StatusReg;
+
+	StatusReg = XSpiPs_ReadReg(Spi0.Config.BaseAddress,XSPIPS_SR_OFFSET);
+	/*
+	 * Polling the Rx Buffer for Data
+	 */
+	do{
+		StatusReg = XSpiPs_ReadReg(Spi0.Config.BaseAddress,XSPIPS_SR_OFFSET);
+	}while(!(StatusReg & XSPIPS_IXR_RXNEMPTY_MASK));
+
+	/*
+	 * Reading the Rx Buffer
+	 */
+	for(Count = 0; Count < ByteCount; Count++){
+		ReadBuffer[Count] = SpiPs_RecvByte(Spi0.Config.BaseAddress);
+	}
+//	xil_printf("\n");
+//	#define SpiPs_RecvByte(BaseAddress) \
+	(u8)XSpiPs_In32((BaseAddress) + XSPIPS_RXD_OFFSET)
+}
+
+void SpiWrite(int *Sendbuffer, int ByteCount)  //
+{
+	u32 StatusReg;
+	int TransCount = 0;
+	StatusReg = XSpiPs_ReadReg(Spi0.Config.BaseAddress,XSPIPS_SR_OFFSET);
+	while ((ByteCount > 0) && (TransCount < XSPIPS_FIFO_DEPTH)) {
+		//SpiPs_SendByte(Spi0.Config.BaseAddress,*Sendbuffer);
+		XSpiPs_Out32((Spi0.Config.BaseAddress) + XSPIPS_TXD_OFFSET, *Sendbuffer);
+		Sendbuffer++;
+		//Sendbuffer 最开始存的是数组首地址  之后++ 指向后面的地址
+		++TransCount;
+		ByteCount--;
+	}
+
+	/*
+	 * Wait for the transfer to finish by polling Tx fifo status.
+	 */
+	do {
+		StatusReg = XSpiPs_ReadReg(Spi0.Config.BaseAddress,XSPIPS_SR_OFFSET);
+	} while ((StatusReg & XSPIPS_IXR_TXOW_MASK) == 0);
+}
+
+int spi0_init() {
+	//spi中断模式和轮询模式：\
+	https://blog.csdn.net/qq_43501721/article/details/119892414
+	int Status;
+	XSpiPs_Config *SpiConfig;
+
+	/*
+	 * Initialize the SPI device.
+	 */
+	SpiConfig = XSpiPs_LookupConfig(XPAR_XSPIPS_0_DEVICE_ID);
+	if (NULL == SpiConfig) {
+		return XST_FAILURE;
+	}
+
+	Status = XSpiPs_CfgInitialize(&Spi0, SpiConfig, SpiConfig->BaseAddress);
+	if (Status != XST_SUCCESS) {
+		return XST_FAILURE;
+	}
+
+	/*
+	 * Perform a self-test to check hardware build.
+	 */
+	Status = XSpiPs_SelfTest(&Spi0);
+	if (Status != XST_SUCCESS) {
+		return XST_FAILURE;
+	}
+	xil_printf("%s self test succ\r\n", __func__);
+
+	Status = XSpiPs_SetOptions(&Spi0, XSPIPS_MASTER_OPTION);
+//	Status = XSpiPs_SetOptions(&Spi0, XSPIPS_CLK_ACTIVE_LOW_OPTION);
+//	Status = XSpiPs_SetOptions(&Spi0, XSPIPS_CLK_PHASE_1_OPTION);
+
+	if (Status != XST_SUCCESS) {
+		xil_printf("%s XSpiPs_SetOptions fail\n", __func__);
+		return XST_FAILURE;
+	}
+	Status = XSpiPs_SetClkPrescaler(&Spi0, XSPIPS_CLK_PRESCALE_4);
+	if (Status != XST_SUCCESS) {
+		xil_printf("%s XSpiPs_SetClkPrescaler fail\n", __func__);
+		return XST_FAILURE;
+	}
+	XSpiPs_Enable(&Spi0);
+	xil_printf("spi 0 config finish\n");
+	return XST_SUCCESS;
+}//https://blog.csdn.net/FPGADesigner/article/details/88932544
+
+void spi26R(char * filePath){
+	int totalRowNum=0;
+	int spifileByteNum=0;
+	int spiIndex=0;
+	Res = f_mount(&fatfs, Path, 0);
+	Res = f_open(&fil, filePath, FA_READ);
+	spifileByteNum=f_size(&fil);
+	totalRowNum=spifileByteNum/(40+2);  //+2 means \r\n
+	Res = f_lseek(&fil, 0);
+	UINT NumBytesRead;
+	int templocal=0;
+	int data[5]={0};
+	int k=1;
+	while(spiIndex<totalRowNum){
+		memset(spiBuf,0,sizeof(spiBuf));
+		f_read(&fil,(void*)spiBuf,40,&NumBytesRead); // 将数据读入spiBuf
+		for(int i=0;i<5;i++){
+			k=pow(2,7);
+			data[i]=0;
+			for(int j=8*i;j<8*i+8;j++){
+				data[i] += k*((int)spiBuf[j]-48);
+				k=k/2;
+			}
+		}
+		SpiWrite(data,5);
+		templocal=f_tell(&fil)+2; //获取下一行的指针位置
+		f_lseek(&fil,templocal);//移动指针到新的读取位置
+		spiIndex++;
+		if(spiIndex == 25){
+			printf("26 registers set over \n");
+		}
+	}
+	// 关闭文件
+	f_close(&fil);
+}
+
+void spiwriteWeight(char * filePath){
+	int totalRowNum=0;
+	int spifileByteNum=0;
+	int spiIndex=0;
+	Res = f_mount(&fatfs, Path, 0);
+	Res = f_open(&fil, filePath, FA_READ);
+	spifileByteNum=f_size(&fil);
+	totalRowNum=spifileByteNum/(40+2);  //+2 means \r\n
+	Res = f_lseek(&fil, 0);
+	UINT NumBytesRead;
+	int templocal=0;
+	int data[5]={0};
+	int k=1;
+	//---------------------------------------------------------------------
+	int data26[5]={0};
+	//如果需要对神经元和突触进行编写和回读，修改SPI_GATE_ACTIVITY=1 ！！！！
+	for(int i=0;i<5;i++){
+		data26[i]=0;
+		if(i==4){
+			data26[i]=1;
+		}
+	}
+	SpiWrite(data26,5);
+	//---------------------------------------------------------------------
+	while(spiIndex<totalRowNum+1){
+		memset(spiBuf,0,sizeof(spiBuf));
+		f_read(&fil,(void*)spiBuf,40,&NumBytesRead); // 将数据读入spiBuf
+		for(int i=0;i<5;i++){
+			k=pow(2,7);
+			data[i]=0;
+			for(int j=8*i;j<8*i+8;j++){
+				data[i] += k*((int)spiBuf[j]-48);
+				k=k/2;
+			}
+		}
+		SpiWrite(data,5);
+		templocal=f_tell(&fil)+2; //获取下一行的指针位置
+		f_lseek(&fil,templocal);//移动指针到新的读取位置
+		spiIndex++;
+	}
+	// 关闭文件
+	Res = f_close(&fil);
+	//---------------------------------------------------------------------
+//	//对神经元和突触编写和回读完毕后，修改SPI_GATE_ACTIVITY=0
+//	for(int i=0;i<5;i++){
+//		data26[i]=0;
+//	}
+//	SpiWrite(data26,5);
+	//---------------------------------------------------------------------
+	xil_printf("weight write over\r\n");
+}
+
+void spiReadWeight(char * filePath){
+	int Status;
+	int totalRowNum=0;
+	int spifileByteNum=0;
+	int spiIndex=0;
+	UINT NumBytesRead;
+	int templocal=0;
+
+	int data[5]={0};//数组的大小取决于需要写入的bit数目   这里需要写入20-比特, 因此扩展到3字节
+	int k=1;
+
+	//---------------------------------------------------------------------
+	int data26[5]={0};
+	//如果需要对神经元和突触进行编写和回读，修改SPI_GATE_ACTIVITY=1 ！！！！
+	for(int i=0;i<5;i++){
+		data26[i]=0;
+		if(i==4){
+			data26[i]=1;
+		}
+	}
+	SpiWrite(data26,5);
+	for(int m=0;m<4;m++){
+		SpiRead(40);
+	}
+	//---------------------------------------------------------------------
+	f_mount(&fatfs, Path, 0);
+	f_open(&fil, filePath, FA_READ);
+	spifileByteNum=f_size(&fil);
+	totalRowNum=spifileByteNum/(40+2);
+	f_lseek(&fil, 0);
+
+	f_open(&fil3, spisaveWPath, FA_CREATE_ALWAYS | FA_WRITE);
+	while(spiIndex<totalRowNum+1){
+		memset(spiBuf,0,sizeof(spiBuf));
+		f_read(&fil,(void*)spiBuf,40,&NumBytesRead); // 将数据读入spiBuf
+		templocal=f_tell(&fil)+2; //获取下一行的指针位置
+		f_lseek(&fil,templocal);//移动指针到新的读取位置
+		for(int i=0;i<5;i++){
+			k=pow(2,7);
+			data[i]=0;
+			for(int j=8*i;j<8*i+8;j++){
+				data[i] += k*((int)spiBuf[j]-48);
+				k=k/2;
+			}
+		}
+		SpiWrite(data,5);  //data虽然是32bit，但是第二个参数规定写的是1字节，即写int的低8bit
+		SpiRead(5);//读取MISO输出的40个bit 到数组
+		// xil_printf("%d,",ReadBuffer[4]);
+		f_printf(&fil3,"%d",ReadBuffer[4]);
+		f_printf(&fil3,"%s",strRN);
+		spiIndex++;
+	}
+	xil_printf("\n");
+	// 关闭文件
+	f_close(&fil);
+	f_close(&fil3);
+}
+

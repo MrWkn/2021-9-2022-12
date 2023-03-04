@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Port 'send/NEUR_EVENT_OUT' has no fanin or fanout and is left dangling.&#xD;&#xA;               Please use C simulation to confirm this function argument can be read from or written to." projectName="send" solutionName="solution1" date="2022-11-24T21:29:15.478+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Port 'send/SCHED_FULL' has no fanin or fanout and is left dangling.&#xD;&#xA;               Please use C simulation to confirm this function argument can be read from or written to." projectName="send" solutionName="solution1" date="2022-11-24T21:29:15.478+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Cannot apply register mode option on port NEUR_EVENT_OUT. It is not an AXI-Stream interface." projectName="send" solutionName="solution1" date="2022-11-24T21:29:15.478+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Cannot apply register mode option on port SCHED_FULL. It is not an AXI-Stream interface." projectName="send" solutionName="solution1" date="2022-11-24T21:29:15.446+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Cannot apply register mode option on port read_loc. It is not an AXI-Stream interface." projectName="send" solutionName="solution1" date="2022-11-24T21:29:15.446+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Cannot apply register mode option on port ack. It is not an AXI-Stream interface." projectName="send" solutionName="solution1" date="2022-11-24T21:29:15.446+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Cannot apply register mode option on port req. It is not an AXI-Stream interface." projectName="send" solutionName="solution1" date="2022-11-24T21:29:15.446+0800" type="Warning"/>
+      </synLog>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

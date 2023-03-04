@@ -1,0 +1,9 @@
+vivado版本
+2021.1
+实验一、LED4_7
+实验二、spi
+实验三、share_ddr_test（7.16完成）
+***实验五、odinWithTestbench[odin还有测试文件]
+实验六、sdwrtest[sdk不能读取pc端的数据文件，通过sd卡读取]
+***实验七、odinIntegration [最终将ODIN实现在FPGA上]
+实验八、GPIO中断实验

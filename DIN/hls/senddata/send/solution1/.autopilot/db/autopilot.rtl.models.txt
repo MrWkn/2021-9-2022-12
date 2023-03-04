@@ -1,0 +1,3 @@
+send_control_s_axi
+send_gmem_m_axi
+send

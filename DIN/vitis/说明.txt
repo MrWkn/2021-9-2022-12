@@ -1,0 +1,12 @@
+Vitis版本：
+2021.1
+test文件：
+	测试项目创建是否成功，用了helloworld模板，可以成功打印输出。
+memorytest文件：
+	用的是memory模板。
+share_ddr文件：
+	测试PS端控制DDR代码
+***odinIngration文件：
+	最终的系统集成，注意粘贴代码之前，还需要配置vitis，比如sd卡部分等配置！！！！
+filetest文件：
+	测试文件的读取为什么不成功？

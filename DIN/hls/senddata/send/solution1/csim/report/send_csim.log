@@ -1,0 +1,12 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling(apcc) ../../../../top.c in debug mode
+INFO: Applying HLS Y2K22 patch v1.2 for IP revision
+INFO: [HLS 200-10] Running 'D:/Xilinx/Vitis_HLS/2021.1/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user '86150' on host 'laptop-07kltu7t' (Windows NT_amd64 version 6.2) on Sun Oct 23 20:20:45 +0800 2022
+INFO: [HLS 200-10] In directory 'D:/vitis_hls_projects/senddata/send/solution1/csim/build'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Generating csim.exe
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

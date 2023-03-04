@@ -1,0 +1,104 @@
+
+
+================================================================
+== Synthesis Summary Report of 'send'
+================================================================
++ General Information: 
+    * Date:           Thu Nov 24 21:29:15 2022
+    * Version:        2021.1 (Build 3247384 on Thu Jun 10 19:36:33 MDT 2021)
+    * Project:        send
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: zynquplus
+    * Target device:  xczu9eg-ffvb1156-2-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +--------------------+--------+-------+---------+--------+----------+---------+------+----------+---------+----+-----------+------------+-----+
+    |       Modules      |  Issue |       | Latency | Latency| Iteration|         | Trip |          |         |    |           |            |     |
+    |       & Loops      |  Type  | Slack | (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined|  BRAM   | DSP|     FF    |     LUT    | URAM|
+    +--------------------+--------+-------+---------+--------+----------+---------+------+----------+---------+----+-----------+------------+-----+
+    |+ send              |  Timing|  -0.00|        -|       -|         -|        -|     -|        no|  4 (~0%)|   -|  961 (~0%)|  1098 (~0%)|    -|
+    | o VITIS_LOOP_17_1  |      II|   7.30|        -|       -|         3|        2|     -|       yes|        -|   -|          -|           -|    -|
+    +--------------------+--------+-------+---------+--------+----------+---------+------+----------+---------+----+-----------+------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* M_AXI
++------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
+| Interface  | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   |
+|            | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |
++------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
+| m_axi_gmem | 32 -> 32   | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          |
++------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
+
+* S_AXILITE
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 6             | 24     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* REGISTER
++----------------+---------+----------+
+| Interface      | Mode    | Bitwidth |
++----------------+---------+----------+
+| NEUR_EVENT_OUT | ap_none | 32       |
+| SCHED_FULL     | ap_none | 32       |
+| ack            | ap_none | 32       |
+| data           | ap_none | 32       |
+| req            | ap_none | 32       |
++----------------+---------+----------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------+
+| Interface | Type       | Ports     |
++-----------+------------+-----------+
+| ap_clk    | clock      | ap_clk    |
+| ap_rst_n  | reset      | ap_rst_n  |
+| interrupt | interrupt  | interrupt |
+| ap_ctrl   | ap_ctrl_hs |           |
++-----------+------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------------+-----------+----------+
+| Argument       | Direction | Datatype |
++----------------+-----------+----------+
+| data_ptr       | in        | pointer  |
+| data           | out       | pointer  |
+| req            | out       | pointer  |
+| ack            | in        | pointer  |
+| read_loc       | in        | int      |
+| SCHED_FULL     | unused    | int*     |
+| NEUR_EVENT_OUT | unused    | int*     |
+| return         | out       | int      |
++----------------+-----------+----------+
+
+* SW-to-HW Mapping
++----------------+--------------------------+-----------+----------+-----------------------+
+| Argument       | HW Name                  | HW Type   | HW Usage | HW Info               |
++----------------+--------------------------+-----------+----------+-----------------------+
+| data_ptr       | m_axi_gmem               | interface |          |                       |
+| data_ptr       | s_axi_control data_ptr_1 | register  | offset   | offset=0x18, range=32 |
+| data_ptr       | s_axi_control data_ptr_2 | register  | offset   | offset=0x1c, range=32 |
+| data           | data                     | port      |          |                       |
+| req            | req                      | port      |          |                       |
+| ack            | ack                      | port      |          |                       |
+| read_loc       | s_axi_control read_loc   | register  |          | offset=0x24, range=32 |
+| SCHED_FULL     | SCHED_FULL               | port      |          |                       |
+| NEUR_EVENT_OUT | NEUR_EVENT_OUT           | port      |          |                       |
+| return         | s_axi_control ap_return  | register  |          | offset=0x10, range=32 |
++----------------+--------------------------+-----------+----------+-----------------------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+

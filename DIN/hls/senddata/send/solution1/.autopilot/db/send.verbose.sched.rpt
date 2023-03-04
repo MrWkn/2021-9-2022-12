@@ -1,0 +1,284 @@
+
+
+================================================================
+== Vitis HLS Report for 'send'
+================================================================
+* Date:           Thu Nov 24 21:29:15 2022
+
+* Version:        2021.1 (Build 3247384 on Thu Jun 10 19:36:33 MDT 2021)
+* Project:        send
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  7.300 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                   |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |     Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_17_1  |        ?|        ?|         3|          2|          1|     ?|       yes|
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 2, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 16
+* Pipeline : 1
+  Pipeline-0 : II = 2, D = 3, States = { 12 13 14 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 15 14 
+14 --> 12 
+15 --> 16 
+16 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.00>
+ST_1 : Operation 17 [2/2] (1.00ns)   --->   "%read_loc_read = read i32 @_ssdm_op_Read.s_axilite.i32, i32 %read_loc" [top.c:1]   --->   Operation 17 'read' 'read_loc_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 122 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 18 [1/1] (1.00ns)   --->   "%data_ptr_read = read i64 @_ssdm_op_Read.s_axilite.i64, i64 %data_ptr" [top.c:1]   --->   Operation 18 'read' 'data_ptr_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 122 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+
+State 2 <SV = 1> <Delay = 2.08>
+ST_2 : Operation 19 [1/2] (1.00ns)   --->   "%read_loc_read = read i32 @_ssdm_op_Read.s_axilite.i32, i32 %read_loc" [top.c:1]   --->   Operation 19 'read' 'read_loc_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 122 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%shl_ln = bitconcatenate i34 @_ssdm_op_BitConcatenate.i34.i32.i2, i32 %read_loc_read, i2 0" [top.c:16]   --->   Operation 20 'bitconcatenate' 'shl_ln' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%sext_ln16 = sext i34 %shl_ln" [top.c:16]   --->   Operation 21 'sext' 'sext_ln16' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 22 [1/1] (1.08ns)   --->   "%add_ln16 = add i64 %sext_ln16, i64 %data_ptr_read" [top.c:16]   --->   Operation 22 'add' 'add_ln16' <Predicate = true> <Delay = 1.08> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.08> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%trunc_ln = partselect i62 @_ssdm_op_PartSelect.i62.i64.i32.i32, i64 %add_ln16, i32 2, i32 63" [top.c:16]   --->   Operation 23 'partselect' 'trunc_ln' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%sext_ln16_1 = sext i62 %trunc_ln" [top.c:16]   --->   Operation 24 'sext' 'sext_ln16_1' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%gmem_addr = getelementptr i32 %gmem, i64 %sext_ln16_1" [top.c:16]   --->   Operation 25 'getelementptr' 'gmem_addr' <Predicate = true> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 7.30>
+ST_3 : Operation 26 [7/7] (7.30ns)   --->   "%gmem_load_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %gmem_addr, i32 1" [top.c:16]   --->   Operation 26 'readreq' 'gmem_load_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 4 <SV = 3> <Delay = 7.30>
+ST_4 : Operation 27 [6/7] (7.30ns)   --->   "%gmem_load_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %gmem_addr, i32 1" [top.c:16]   --->   Operation 27 'readreq' 'gmem_load_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 5 <SV = 4> <Delay = 7.30>
+ST_5 : Operation 28 [5/7] (7.30ns)   --->   "%gmem_load_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %gmem_addr, i32 1" [top.c:16]   --->   Operation 28 'readreq' 'gmem_load_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 6 <SV = 5> <Delay = 7.30>
+ST_6 : Operation 29 [4/7] (7.30ns)   --->   "%gmem_load_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %gmem_addr, i32 1" [top.c:16]   --->   Operation 29 'readreq' 'gmem_load_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 7 <SV = 6> <Delay = 7.30>
+ST_7 : Operation 30 [3/7] (7.30ns)   --->   "%gmem_load_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %gmem_addr, i32 1" [top.c:16]   --->   Operation 30 'readreq' 'gmem_load_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 8 <SV = 7> <Delay = 7.30>
+ST_8 : Operation 31 [2/7] (7.30ns)   --->   "%gmem_load_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %gmem_addr, i32 1" [top.c:16]   --->   Operation 31 'readreq' 'gmem_load_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 9 <SV = 8> <Delay = 7.30>
+ST_9 : Operation 32 [1/7] (7.30ns)   --->   "%gmem_load_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P1A, i32 %gmem_addr, i32 1" [top.c:16]   --->   Operation 32 'readreq' 'gmem_load_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 10 <SV = 9> <Delay = 7.30>
+ST_10 : Operation 33 [1/1] (7.30ns)   --->   "%gmem_addr_read = read i32 @_ssdm_op_Read.m_axi.volatile.i32P1A, i32 %gmem_addr" [top.c:16]   --->   Operation 33 'read' 'gmem_addr_read' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_10 : Operation 34 [2/2] (0.00ns)   --->   "%write_ln16 = write void @_ssdm_op_Write.ap_none.volatile.i32P0A, i32 %data, i32 %gmem_addr_read" [top.c:16]   --->   Operation 34 'write' 'write_ln16' <Predicate = true> <Delay = 0.00>
+
+State 11 <SV = 10> <Delay = 0.00>
+ST_11 : Operation 35 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 0"   --->   Operation 35 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 36 [1/1] (0.00ns)   --->   "%spectopmodule_ln0 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_12"   --->   Operation 36 'spectopmodule' 'spectopmodule_ln0' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 37 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem, void @empty, i32 0, i32 0, void @empty_0, i32 0, i32 100, void @empty_1, void @empty_2, void @empty_0, i32 16, i32 16, i32 16, i32 16, void @empty_0, void @empty_0"   --->   Operation 37 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 38 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %gmem"   --->   Operation 38 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 39 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %data_ptr, void @empty_3, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_4, void @empty_5, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_6"   --->   Operation 39 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 40 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %data_ptr, void @empty_7, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_6"   --->   Operation 40 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 41 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %data"   --->   Operation 41 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 42 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %data, void @empty_8, i32 1, i32 1, void @empty_9, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 42 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 43 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %req"   --->   Operation 43 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 44 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %req, void @empty_8, i32 1, i32 1, void @empty_9, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 44 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 45 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %ack"   --->   Operation 45 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 46 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %ack, void @empty_8, i32 1, i32 1, void @empty_9, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 46 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 47 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %read_loc"   --->   Operation 47 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 48 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %read_loc, void @empty_3, i32 1, i32 1, void @empty_9, i32 0, i32 0, void @empty_4, void @empty_10, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 48 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 49 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %read_loc, void @empty_7, i32 1, i32 1, void @empty_9, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 49 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 50 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %SCHED_FULL"   --->   Operation 50 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 51 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %SCHED_FULL, void @empty_8, i32 1, i32 1, void @empty_9, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 51 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 52 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %NEUR_EVENT_OUT"   --->   Operation 52 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 53 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %NEUR_EVENT_OUT, void @empty_8, i32 1, i32 1, void @empty_9, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 53 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 54 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 0, void @empty_3, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_4, void @empty_11, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0"   --->   Operation 54 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 55 [1/2] (0.00ns)   --->   "%write_ln16 = write void @_ssdm_op_Write.ap_none.volatile.i32P0A, i32 %data, i32 %gmem_addr_read" [top.c:16]   --->   Operation 55 'write' 'write_ln16' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 56 [1/1] (0.00ns)   --->   "%br_ln17 = br void" [top.c:17]   --->   Operation 56 'br' 'br_ln17' <Predicate = true> <Delay = 0.00>
+
+State 12 <SV = 11> <Delay = 0.00>
+ST_12 : Operation 57 [2/2] (0.00ns)   --->   "%ack_read = read i32 @_ssdm_op_Read.ap_none.volatile.i32P0A, i32 %ack" [top.c:18]   --->   Operation 57 'read' 'ack_read' <Predicate = true> <Delay = 0.00>
+
+State 13 <SV = 12> <Delay = 0.99>
+ST_13 : Operation 58 [1/1] (0.00ns)   --->   "%specpipeline_ln0 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 1, i32 0, void @p_str"   --->   Operation 58 'specpipeline' 'specpipeline_ln0' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 59 [1/2] (0.00ns)   --->   "%ack_read = read i32 @_ssdm_op_Read.ap_none.volatile.i32P0A, i32 %ack" [top.c:18]   --->   Operation 59 'read' 'ack_read' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 60 [1/1] (0.99ns)   --->   "%icmp_ln18 = icmp_eq  i32 %ack_read, i32 0" [top.c:18]   --->   Operation 60 'icmp' 'icmp_ln18' <Predicate = true> <Delay = 0.99> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.99> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 61 [1/1] (0.00ns)   --->   "%br_ln18 = br i1 %icmp_ln18, void, void" [top.c:18]   --->   Operation 61 'br' 'br_ln18' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 62 [2/2] (0.00ns)   --->   "%write_ln19 = write void @_ssdm_op_Write.ap_none.volatile.i32P0A, i32 %req, i32 1" [top.c:19]   --->   Operation 62 'write' 'write_ln19' <Predicate = (icmp_ln18)> <Delay = 0.00>
+
+State 14 <SV = 13> <Delay = 0.00>
+ST_14 : Operation 63 [1/1] (0.00ns)   --->   "%specloopname_ln19 = specloopname void @_ssdm_op_SpecLoopName, void @empty_13" [top.c:19]   --->   Operation 63 'specloopname' 'specloopname_ln19' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 64 [1/2] (0.00ns)   --->   "%write_ln19 = write void @_ssdm_op_Write.ap_none.volatile.i32P0A, i32 %req, i32 1" [top.c:19]   --->   Operation 64 'write' 'write_ln19' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 65 [1/1] (0.00ns)   --->   "%br_ln17 = br void" [top.c:17]   --->   Operation 65 'br' 'br_ln17' <Predicate = true> <Delay = 0.00>
+
+State 15 <SV = 13> <Delay = 0.00>
+ST_15 : Operation 66 [2/2] (0.00ns)   --->   "%write_ln21 = write void @_ssdm_op_Write.ap_none.volatile.i32P0A, i32 %req, i32 0" [top.c:21]   --->   Operation 66 'write' 'write_ln21' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 67 [2/2] (0.00ns)   --->   "%write_ln25 = write void @_ssdm_op_Write.ap_none.volatile.i32P0A, i32 %data, i32 0" [top.c:25]   --->   Operation 67 'write' 'write_ln25' <Predicate = true> <Delay = 0.00>
+
+State 16 <SV = 14> <Delay = 0.00>
+ST_16 : Operation 68 [1/2] (0.00ns)   --->   "%write_ln21 = write void @_ssdm_op_Write.ap_none.volatile.i32P0A, i32 %req, i32 0" [top.c:21]   --->   Operation 68 'write' 'write_ln21' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 69 [1/2] (0.00ns)   --->   "%write_ln25 = write void @_ssdm_op_Write.ap_none.volatile.i32P0A, i32 %data, i32 0" [top.c:25]   --->   Operation 69 'write' 'write_ln25' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 70 [1/1] (0.00ns)   --->   "%ret_ln26 = ret i32 1" [top.c:26]   --->   Operation 70 'ret' 'ret_ln26' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 2.7ns.
+
+ <State 1>: 1ns
+The critical path consists of the following:
+	s_axi read operation ('read_loc', top.c:1) on port 'read_loc' (top.c:1) [29]  (1 ns)
+
+ <State 2>: 2.08ns
+The critical path consists of the following:
+	s_axi read operation ('read_loc', top.c:1) on port 'read_loc' (top.c:1) [29]  (1 ns)
+	'add' operation ('add_ln16', top.c:16) [33]  (1.08 ns)
+
+ <State 3>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('gmem_load_req', top.c:16) on port 'gmem' (top.c:16) [37]  (7.3 ns)
+
+ <State 4>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('gmem_load_req', top.c:16) on port 'gmem' (top.c:16) [37]  (7.3 ns)
+
+ <State 5>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('gmem_load_req', top.c:16) on port 'gmem' (top.c:16) [37]  (7.3 ns)
+
+ <State 6>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('gmem_load_req', top.c:16) on port 'gmem' (top.c:16) [37]  (7.3 ns)
+
+ <State 7>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('gmem_load_req', top.c:16) on port 'gmem' (top.c:16) [37]  (7.3 ns)
+
+ <State 8>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('gmem_load_req', top.c:16) on port 'gmem' (top.c:16) [37]  (7.3 ns)
+
+ <State 9>: 7.3ns
+The critical path consists of the following:
+	bus request operation ('gmem_load_req', top.c:16) on port 'gmem' (top.c:16) [37]  (7.3 ns)
+
+ <State 10>: 7.3ns
+The critical path consists of the following:
+	bus read operation ('gmem_addr_read', top.c:16) on port 'gmem' (top.c:16) [38]  (7.3 ns)
+
+ <State 11>: 0ns
+The critical path consists of the following:
+
+ <State 12>: 0ns
+The critical path consists of the following:
+
+ <State 13>: 0.991ns
+The critical path consists of the following:
+	register read operation ('ack_read', top.c:18) on port 'ack' (top.c:18) [43]  (0 ns)
+	'icmp' operation ('icmp_ln18', top.c:18) [44]  (0.991 ns)
+
+ <State 14>: 0ns
+The critical path consists of the following:
+
+ <State 15>: 0ns
+The critical path consists of the following:
+
+ <State 16>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

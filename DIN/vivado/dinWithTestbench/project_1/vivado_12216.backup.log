@@ -1,0 +1,605 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Sun Aug 21 10:16:00 2022
+# Process ID: 12216
+# Current directory: D:/Vivado_project/test_ODIN5_9/project_1
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12180 D:\Vivado_project\test_ODIN5_9\project_1\project_1.xpr
+# Log file: D:/Vivado_project/test_ODIN5_9/project_1/vivado.log
+# Journal file: D:/Vivado_project/test_ODIN5_9/project_1\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/Vivado_project/test_ODIN5_9/project_1/project_1.xpr
+WARNING: [Board 49-91] Board repository path 'C:/Users/86150/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store' does not exist, it will not be used to search board files.
+WARNING: [filemgmt 56-3] Board Part Repository Path: Could not find the directory 'D:/../AppData/Roaming/Xilinx/Vivado/2019.2/xhub/board_store'.
+WARNING: [filemgmt 56-3] IP Repository Path: Could not find the directory 'D:/Vivado_project/TEST_project'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'd:/Vivado_project/TEST_project'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2021.1/data/ip'.
+open_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:06 . Memory (MB): peak = 1228.512 ; gain = 0.000
+update_compile_order -fileset sources_1
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/Vivado_project/test_ODIN5_9/project_1/project_1.runs/synth_1
+
+launch_runs synth_1 -jobs 6
+[Sun Aug 21 10:19:24 2022] Launched synth_1...
+Run output will be captured here: D:/Vivado_project/test_ODIN5_9/project_1/project_1.runs/synth_1/runme.log
+ipx::package_project -root_dir D:/Vivado_project/ip_package/odintop -vendor xilinx.com -library user -taxonomy /UserIP -import_files -set_current false
+WARNING: [IP_Flow 19-4963] neuron_mem_0 has board value specified. The packaged IP will be restricted to usage with board 'xilinx.com:zcu102:part0:3.3'
+WARNING: [IP_Flow 19-4318] IP-XACT file does not exist: d:/Vivado_project/ip_package/odintop/sim/SPI_mem_gen_0/SPI_mem_gen_0.xci. It will be created.
+WARNING: [IP_Flow 19-4318] IP-XACT file does not exist: d:/Vivado_project/ip_package/odintop/sim/neuron_mem_0/neuron_mem_0.xci. It will be created.
+WARNING: [IP_Flow 19-4318] IP-XACT file does not exist: d:/Vivado_project/ip_package/odintop/sim/synapse_mem_0/synapse_mem_0.xci. It will be created.
+INFO: [IP_Flow 19-5107] Inferred bus interface 'RST' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'CLK' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'CLK': Added interface parameter 'ASSOCIATED_RESET' with value 'RST'.
+WARNING: [IP_Flow 19-5661] Bus Interface 'CLK' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-2181] Payment Required is not set for this core.
+INFO: [IP_Flow 19-2187] The Product Guide file is missing.
+ipx::unload_core d:/Vivado_project/ip_package/odintop/component.xml
+ipx::edit_ip_in_project -upgrade true -name tmp_edit_project -directory D:/Vivado_project/ip_package/odintop d:/Vivado_project/ip_package/odintop/component.xml
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2021.1/data/ip'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'd:/Vivado_project/TEST_project'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+INFO: [IP_Flow 19-795] Syncing license key meta-data
+current_project project_1
+current_project tmp_edit_project
+update_compile_order -fileset sources_1
+set_property core_revision 2 [ipx::current_core]
+ipx::update_source_project_archive -component [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+WARNING: [IP_Flow 19-5661] Bus Interface 'CLK' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-2181] Payment Required is not set for this core.
+INFO: [IP_Flow 19-2187] The Product Guide file is missing.
+INFO: [Ipptcl 7-1486] check_integrity: Integrity check passed.
+ipx::save_core [ipx::current_core]
+ipx::move_temp_component_back -component [ipx::current_core]
+close_project -delete
+set_property  ip_repo_paths  {d:/Vivado_project/ip_package/odintop d:/Vivado_project/TEST_project} [current_project]
+update_ip_catalog
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Vivado_project/ip_package/odintop'.
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'd:/Vivado_project/TEST_project'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+close_project
+open_project D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.xpr
+WARNING: [filemgmt 56-3] Board Part Repository Path: Could not find the directory 'C:/Users/86150/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Vivado_project/ip_package'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Vivado_project/odin'.
+WARNING: [IP_Flow 19-3656] If you move the project, the path for repository 'd:/Vivado_project/odin' may become invalid. A better location for the repository would be in a path adjacent to the project. (Current project location is 'd:/Vivado_project/odinDDR/odin_ddr'.)
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2021.1/data/ip'.
+open_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:06 . Memory (MB): peak = 1242.523 ; gain = 14.012
+update_compile_order -fileset sources_1
+open_bd_design {D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/sources_1/bd/design_1/design_1.bd}
+Reading block design file <D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/sources_1/bd/design_1/design_1.bd>...
+Adding component instance block -- xilinx.com:ip:zynq_ultra_ps_e:3.3 - zynq_ultra_ps_e_0
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - rst_ps8_0_99M
+Adding component instance block -- xilinx.com:hls:read_odin:1.0 - read_odin_0
+Adding component instance block -- xilinx.com:ip:axi_interconnect:2.1 - ps8_0_axi_periph
+Adding component instance block -- xilinx.com:ip:axi_dwidth_converter:2.1 - auto_ds
+Adding component instance block -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding component instance block -- xilinx.com:ip:smartconnect:1.0 - axi_smc
+Adding component instance block -- xilinx.com:hls:write_odin:1.0 - write_odin_0
+Adding component instance block -- xilinx.com:ip:system_ila:1.1 - system_ila_0
+Adding component instance block -- xilinx.com:user:ODIN:1.0 - ODIN_0
+Excluding slave segment /zynq_ultra_ps_e_0/SAXIGP6/LPD_LPS_OCM from address space /write_odin_0/Data_m_axi_gmem.
+Successfully read diagram <design_1> from block design file <D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/sources_1/bd/design_1/design_1.bd>
+open_bd_design: Time (s): cpu = 00:00:14 ; elapsed = 00:00:09 . Memory (MB): peak = 1357.074 ; gain = 114.551
+update_ip_catalog -rebuild
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Vivado_project/ip_package'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Vivado_project/odin'.
+WARNING: [IP_Flow 19-3656] If you move the project, the path for repository 'd:/Vivado_project/odin' may become invalid. A better location for the repository would be in a path adjacent to the project. (Current project location is 'd:/Vivado_project/odinDDR/odin_ddr'.)
+set_property  ip_repo_paths  d:/Vivado_project/ip_package [current_project]
+update_ip_catalog
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Vivado_project/ip_package'.
+update_ip_catalog -rebuild
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Vivado_project/ip_package'.
+regenerate_bd_layout
+regenerate_bd_layout
+validate_bd_design -force
+ERROR: [BD 5-336] This command cannot be run, as the BD-design is locked. Locked reason(s):
+* Block design contains locked IPs. Please run report_ip_status for more details and recommendations on how to fix this issue. 
+List of locked IPs: 
+design_1_ODIN_0_1
+
+ERROR: [Common 17-39] 'validate_bd_design' failed due to earlier errors.
+delete_bd_objs [get_bd_nets write_odin_0_data] [get_bd_nets ODIN_0_AERIN_ACK] [get_bd_nets write_odin_0_data_ap_vld] [get_bd_nets ODIN_0_AEROUT_ADDR] [get_bd_nets ODIN_0_AEROUT_REQ] [get_bd_nets read_odin_0_data_ap_ack] [get_bd_cells ODIN_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:SYSTEM_TOP:1.0 SYSTEM_TOP_0
+endgroup
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/zynq_ultra_ps_e_0/pl_clk0 (99 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins SYSTEM_TOP_0/CLK]
+delete_bd_objs [get_bd_nets zynq_ultra_ps_e_0_emio_spi0_m_o] [get_bd_nets ODIN_0_MISO] [get_bd_cells system_ila_0]
+startgroup
+set_property HDL_ATTRIBUTE.DEBUG false [get_bd_nets { rst_ps8_0_99M_peripheral_aresetn rst_ps8_0_99M_interconnect_aresetn zynq_ultra_ps_e_0_pl_resetn0 zynq_ultra_ps_e_0_pl_clk0 zynq_ultra_ps_e_0_emio_spi0_sclk_o rst_ps8_0_99M_peripheral_reset } ]
+endgroup
+startgroup
+set_property HDL_ATTRIBUTE.DEBUG false [get_bd_intf_nets { ps8_0_axi_periph_M00_AXI axi_smc_M00_AXI write_odin_0_m_axi_gmem zynq_ultra_ps_e_0_M_AXI_HPM0_LPD } ]
+endgroup
+regenerate_bd_layout
+connect_bd_net [get_bd_pins write_odin_0/data] [get_bd_pins SYSTEM_TOP_0/AERIN_ADDR]
+connect_bd_net [get_bd_pins SYSTEM_TOP_0/AERIN_REQ] [get_bd_pins write_odin_0/data_ap_vld]
+connect_bd_net [get_bd_pins SYSTEM_TOP_0/AERIN_ACK] [get_bd_pins write_odin_0/data_ap_ack]
+connect_bd_net [get_bd_pins SYSTEM_TOP_0/AEROUT_ADDR] [get_bd_pins read_odin_0/data]
+connect_bd_net [get_bd_pins SYSTEM_TOP_0/AEROUT_REQ] [get_bd_pins read_odin_0/data_ap_vld]
+connect_bd_net [get_bd_pins SYSTEM_TOP_0/AEROUT_ACK] [get_bd_pins read_odin_0/data_ap_ack]
+regenerate_bd_layout
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+WARNING: [IP_Flow 19-474] Invalid Parameter 'Component_Name'
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+startgroup
+set_property -dict [list CONFIG.PSU__SPI0__PERIPHERAL__ENABLE {0}] [get_bd_cells zynq_ultra_ps_e_0]
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+WARNING: [BD 41-1684] Pin /zynq_ultra_ps_e_0/emio_spi0_sclk_i is now disabled. All connections to this pin have been removed. 
+WARNING: [BD 41-1684] Pin /zynq_ultra_ps_e_0/emio_spi0_sclk_o is now disabled. All connections to this pin have been removed. 
+delete_bd_objs [get_bd_nets zynq_ultra_ps_e_0_emio_spi0_sclk_o] [get_bd_nets zynq_ultra_ps_e_0_emio_spi0_sclk_o]
+endgroup
+regenerate_bd_layout
+save_bd_design
+Wrote  : <D:\Vivado_project\odinDDR\odin_ddr\odin_ddr.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0
+create_bd_cell: Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2841.180 ; gain = 990.199
+endgroup
+set_property location {2 861 -73} [get_bd_cells clk_wiz_0]
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Clk {/zynq_ultra_ps_e_0/pl_clk0 (99 MHz)} Manual_Source {Auto}}  [get_bd_pins clk_wiz_0/clk_in1]
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Board_Interface {Custom} Manual_Source {New External Port (ACTIVE_HIGH)}}  [get_bd_pins clk_wiz_0/reset]
+INFO: [board_rule 100-100] set_property CONFIG.USE_BOARD_FLOW true [get_bd_cells /clk_wiz_0]
+INFO: [board_rule 100-100] set_property CONFIG.RESET_BOARD_INTERFACE Custom [get_bd_cells /clk_wiz_0]
+INFO: [BoardRule 102-10] create_bd_port -dir I reset_rtl -type rst
+INFO: [BoardRule 102-7] set_property CONFIG.POLARITY ACTIVE_HIGH /reset_rtl
+INFO: [BoardRule 102-15] connect_bd_net /reset_rtl /clk_wiz_0/reset
+WARNING: [BoardRule 102-1] Board automation did not generate location constraint for /clk_wiz_0/reset. Users may need to specify the location constraint manually.
+endgroup
+startgroup
+set_property -dict [list CONFIG.PRIM_IN_FREQ.VALUE_SRC PROPAGATED] [get_bd_cells clk_wiz_0]
+set_property -dict [list CONFIG.PRIMITIVE {PLL} CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {20.000} CONFIG.CLKOUT1_DRIVES {Buffer} CONFIG.CLKOUT2_DRIVES {Buffer} CONFIG.CLKOUT3_DRIVES {Buffer} CONFIG.CLKOUT4_DRIVES {Buffer} CONFIG.CLKOUT5_DRIVES {Buffer} CONFIG.CLKOUT6_DRIVES {Buffer} CONFIG.CLKOUT7_DRIVES {Buffer} CONFIG.FEEDBACK_SOURCE {FDBK_AUTO} CONFIG.MMCM_BANDWIDTH {OPTIMIZED} CONFIG.MMCM_CLKFBOUT_MULT_F {8} CONFIG.MMCM_COMPENSATION {AUTO} CONFIG.MMCM_CLKOUT0_DIVIDE_F {40} CONFIG.CLKOUT1_JITTER {200.312} CONFIG.CLKOUT1_PHASE_ERROR {114.212}] [get_bd_cells clk_wiz_0]
+endgroup
+connect_bd_net [get_bd_pins SYSTEM_TOP_0/SCK] [get_bd_pins clk_wiz_0/clk_out1]
+save_bd_design
+Wrote  : <D:\Vivado_project\odinDDR\odin_ddr\odin_ddr.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+regenerate_bd_layout
+delete_bd_objs [get_bd_nets reset_rtl_1]
+delete_bd_objs [get_bd_ports reset_rtl]
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Board_Interface {Custom} Manual_Source {New External Port (ACTIVE_HIGH)}}  [get_bd_pins clk_wiz_0/reset]
+INFO: [board_rule 100-100] set_property CONFIG.RESET_BOARD_INTERFACE Custom [get_bd_cells /clk_wiz_0]
+INFO: [BoardRule 102-10] create_bd_port -dir I reset_rtl -type rst
+INFO: [BoardRule 102-7] set_property CONFIG.POLARITY ACTIVE_HIGH /reset_rtl
+INFO: [BoardRule 102-15] connect_bd_net /reset_rtl /clk_wiz_0/reset
+WARNING: [BoardRule 102-1] Board automation did not generate location constraint for /clk_wiz_0/reset. Users may need to specify the location constraint manually.
+delete_bd_objs [get_bd_nets reset_rtl_1]
+delete_bd_objs [get_bd_ports reset_rtl]
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Board_Interface {reset ( FPGA Reset ) } Manual_Source {New External Port (ACTIVE_HIGH)}}  [get_bd_pins clk_wiz_0/reset]
+INFO: [board_rule 100-100] set_property CONFIG.RESET_BOARD_INTERFACE reset [get_bd_cells /clk_wiz_0]
+INFO: [BoardRule 102-10] create_bd_port -dir I reset -type rst
+INFO: [BoardRule 102-7] set_property CONFIG.POLARITY ACTIVE_HIGH /reset
+INFO: [BoardRule 102-15] connect_bd_net /reset /clk_wiz_0/reset
+INFO: [BoardRule 102-18] set_property CONFIG.POLARITY ACTIVE_HIGH /reset
+delete_bd_objs [get_bd_nets reset_1] [get_bd_ports reset]
+INFO: [PSU-1]  DP_AUDIO clock source: RPLL is also being used by other peripheral clocks. Their outputs may get impacted if any driver changes DP_AUDIO PLL source to support runtime audio change 
+WARNING: [IP_Flow 19-474] Invalid Parameter 'Component_Name'
+startgroup
+set_property -dict [list CONFIG.RESET_BOARD_INTERFACE {Custom} CONFIG.OVERRIDE_MMCM {false}] [get_bd_cells clk_wiz_0]
+endgroup
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Board_Interface {Custom} Manual_Source {New External Port (ACTIVE_HIGH)}}  [get_bd_pins clk_wiz_0/reset]
+INFO: [board_rule 100-100] set_property CONFIG.RESET_BOARD_INTERFACE Custom [get_bd_cells /clk_wiz_0]
+INFO: [BoardRule 102-10] create_bd_port -dir I reset_rtl -type rst
+INFO: [BoardRule 102-7] set_property CONFIG.POLARITY ACTIVE_HIGH /reset_rtl
+INFO: [BoardRule 102-15] connect_bd_net /reset_rtl /clk_wiz_0/reset
+WARNING: [BoardRule 102-1] Board automation did not generate location constraint for /clk_wiz_0/reset. Users may need to specify the location constraint manually.
+delete_bd_objs [get_bd_nets reset_rtl_1]
+delete_bd_objs [get_bd_ports reset_rtl]
+startgroup
+set_property -dict [list CONFIG.RESET_BOARD_INTERFACE {reset}] [get_bd_cells clk_wiz_0]
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:util_vector_logic:2.0 util_vector_logic_0
+endgroup
+set_property -dict [list CONFIG.C_SIZE {1} CONFIG.C_OPERATION {not} CONFIG.LOGO_FILE {data/sym_notgate.png}] [get_bd_cells util_vector_logic_0]
+set_property location {1 314 387} [get_bd_cells util_vector_logic_0]
+connect_bd_net [get_bd_pins util_vector_logic_0/Op1] [get_bd_pins zynq_ultra_ps_e_0/pl_resetn0]
+connect_bd_net [get_bd_pins util_vector_logic_0/Res] [get_bd_pins clk_wiz_0/reset]
+regenerate_bd_layout
+save_bd_design
+Wrote  : <D:\Vivado_project\odinDDR\odin_ddr\odin_ddr.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+close_bd_design [get_bd_designs design_1]
+Wrote  : <D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+close_project
+open_project D:/Vivado_project/test_ODIN5_9/project_1/project_1.xpr
+WARNING: [filemgmt 56-3] Board Part Repository Path: Could not find the directory 'D:/../AppData/Roaming/Xilinx/Vivado/2019.2/xhub/board_store'.
+WARNING: [filemgmt 56-3] IP Repository Path: Could not find the directory 'D:/Vivado_project/TEST_project'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Vivado_project/ip_package/odintop'.
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'd:/Vivado_project/TEST_project'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2021.1/data/ip'.
+update_compile_order -fileset sources_1
+close_project
+open_project D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.xpr
+WARNING: [filemgmt 56-3] Board Part Repository Path: Could not find the directory 'C:/Users/86150/AppData/Roaming/Xilinx/Vivado/2019.1/xhub/board_store'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Vivado_project/ip_package'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2021.1/data/ip'.
+update_compile_order -fileset sources_1
+open_bd_design {D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/sources_1/bd/design_1/design_1.bd}
+Reading block design file <D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/sources_1/bd/design_1/design_1.bd>...
+Adding component instance block -- xilinx.com:ip:zynq_ultra_ps_e:3.3 - zynq_ultra_ps_e_0
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - rst_ps8_0_99M
+Adding component instance block -- xilinx.com:hls:read_odin:1.0 - read_odin_0
+Adding component instance block -- xilinx.com:ip:axi_interconnect:2.1 - ps8_0_axi_periph
+Adding component instance block -- xilinx.com:ip:axi_dwidth_converter:2.1 - auto_ds
+Adding component instance block -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding component instance block -- xilinx.com:ip:smartconnect:1.0 - axi_smc
+Adding component instance block -- xilinx.com:hls:write_odin:1.0 - write_odin_0
+Adding component instance block -- xilinx.com:user:SYSTEM_TOP:1.0 - SYSTEM_TOP_0
+Adding component instance block -- xilinx.com:ip:clk_wiz:6.0 - clk_wiz_0
+Adding component instance block -- xilinx.com:ip:util_vector_logic:2.0 - util_vector_logic_0
+Excluding slave segment /zynq_ultra_ps_e_0/SAXIGP6/LPD_LPS_OCM from address space /write_odin_0/Data_m_axi_gmem.
+Successfully read diagram <design_1> from block design file <D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/sources_1/bd/design_1/design_1.bd>
+open_bd_design: Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 3191.789 ; gain = 0.000
+disconnect_bd_net /rst_ps8_0_99M_peripheral_aresetn [get_bd_pins SYSTEM_TOP_0/RST]
+startgroup
+set_property -dict [list CONFIG.C_SIZE {2}] [get_bd_cells util_vector_logic_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.C_SIZE {1} CONFIG.C_OPERATION {not} CONFIG.LOGO_FILE {data/sym_notgate.png}] [get_bd_cells util_vector_logic_0]
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:util_vector_logic:2.0 util_vector_logic_1
+endgroup
+set_property location {3 1138 719} [get_bd_cells util_vector_logic_1]
+set_property -dict [list CONFIG.C_SIZE {1} CONFIG.C_OPERATION {not} CONFIG.LOGO_FILE {data/sym_notgate.png}] [get_bd_cells util_vector_logic_1]
+set_property location {3 1203 646} [get_bd_cells util_vector_logic_1]
+connect_bd_net [get_bd_pins clk_wiz_0/locked] [get_bd_pins util_vector_logic_1/Op1]
+connect_bd_net [get_bd_pins util_vector_logic_1/Res] [get_bd_pins SYSTEM_TOP_0/RST]
+regenerate_bd_layout
+save_bd_design
+Wrote  : <D:\Vivado_project\odinDDR\odin_ddr\odin_ddr.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+validate_bd_design
+INFO: [xilinx.com:ip:smartconnect:1.0-1] design_1_axi_smc_0: SmartConnect design_1_axi_smc_0 is in High-performance Mode.
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /ps8_0_axi_periph/s00_couplers/auto_ds/S_AXI(0) and /zynq_ultra_ps_e_0/M_AXI_HPM0_LPD(16)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /ps8_0_axi_periph/s00_couplers/auto_ds/S_AXI(0) and /zynq_ultra_ps_e_0/M_AXI_HPM0_LPD(16)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /zynq_ultra_ps_e_0/S_AXI_LPD(1) and /axi_smc/M00_AXI(0)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /zynq_ultra_ps_e_0/S_AXI_LPD(1) and /axi_smc/M00_AXI(0)
+WARNING: [BD 41-927] Following properties on pin /write_odin_0/ap_clk have been updated from connected ip, but BD cell '/write_odin_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 99990005 
+Please resolve any mismatches by directly setting properties on BD cell </write_odin_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /SYSTEM_TOP_0/CLK have been updated from connected ip, but BD cell '/SYSTEM_TOP_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 99990005 
+Please resolve any mismatches by directly setting properties on BD cell </SYSTEM_TOP_0> to completely resolve these warnings.
+save_bd_design
+Wrote  : <D:\Vivado_project\odinDDR\odin_ddr\odin_ddr.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+Wrote  : <D:\Vivado_project\odinDDR\odin_ddr\odin_ddr.srcs\sources_1\bd\design_1\design_1.bd> 
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc/S00_AXI_arlock'(1) to pin: '/write_odin_0/m_axi_gmem_ARLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc/S00_AXI_awlock'(1) to pin: '/write_odin_0/m_axi_gmem_AWLOCK'(2) - Only lower order bits will be connected.
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/read_odin_0/data'(32) to pin '/SYSTEM_TOP_0/AEROUT_ADDR'(8) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/SYSTEM_TOP_0/AERIN_ADDR'(17) to pin '/write_odin_0/data'(32) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+VHDL Output written to : d:/Vivado_project/odinDDR/odin_ddr/odin_ddr.gen/sources_1/bd/design_1/synth/design_1.v
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc/S00_AXI_arlock'(1) to pin: '/write_odin_0/m_axi_gmem_ARLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc/S00_AXI_awlock'(1) to pin: '/write_odin_0/m_axi_gmem_AWLOCK'(2) - Only lower order bits will be connected.
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/read_odin_0/data'(32) to pin '/SYSTEM_TOP_0/AEROUT_ADDR'(8) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/SYSTEM_TOP_0/AERIN_ADDR'(17) to pin '/write_odin_0/data'(32) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+VHDL Output written to : d:/Vivado_project/odinDDR/odin_ddr/odin_ddr.gen/sources_1/bd/design_1/sim/design_1.v
+VHDL Output written to : d:/Vivado_project/odinDDR/odin_ddr/odin_ddr.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v
+INFO: [xilinx.com:ip:zynq_ultra_ps_e:3.3-0] design_1_zynq_ultra_ps_e_0_0: 
+Changes in your design (including the PCW configuration settings) are not automatically exported from Vivado to Xilinx's SDK, Petalinux or Yocto.
+This is by design to avoid disrupting existing embedded development efforts. To have any changes of your design taking effect in the embedded software flow please export your
+design by going through Vivado's main menu, click on File, then Export finally select Export Hardware, please ensure you click on the Include BitStream option.
+The auto-generated HDF file is all you need to import in Xilinx's SDK, Petalinux or Yocto for your changes to be reflected in the Embedded Software Flow.
+For more information, please consult PG201, section: Exporting PCW Settings to Embedded Software Flows
+INFO: [PSU-0] Address Range of DDR (0x7ff00000 to 0x7fffffff) is reserved by PMU for internal purpose.
+INFO: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'M_AXI_HPM0_LPD'. A default connection has been created.
+INFO: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'S_AXI_LPD'. A default connection has been created.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block zynq_ultra_ps_e_0 .
+Exporting to file d:/Vivado_project/odinDDR/odin_ddr/odin_ddr.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/hw_handoff/design_1_axi_smc_0.hwh
+Generated Block Design Tcl file d:/Vivado_project/odinDDR/odin_ddr/odin_ddr.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/hw_handoff/design_1_axi_smc_0_bd.tcl
+Generated Hardware Definition File d:/Vivado_project/odinDDR/odin_ddr/odin_ddr.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/design_1_axi_smc_0.hwdef
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_smc .
+CRITICAL WARNING: [IP_Flow 19-4965] IP neuron_mem_0 was packaged with board value 'xilinx.com:zcu102:part0:3.3'. Current project's board value is 'xilinx.com:zcu102:part0:3.4'. Please update the project settings to match the packaged IP.
+CRITICAL WARNING: [IP_Flow 19-4965] IP synapse_mem_0 was packaged with board value 'xilinx.com:zcu102:part0:3.3'. Current project's board value is 'xilinx.com:zcu102:part0:3.4'. Please update the project settings to match the packaged IP.
+CRITICAL WARNING: [IP_Flow 19-4965] IP SPI_mem_gen_0 was packaged with board value 'xilinx.com:zcu102:part0:3.3'. Current project's board value is 'xilinx.com:zcu102:part0:3.4'. Please update the project settings to match the packaged IP.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block SYSTEM_TOP_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block util_vector_logic_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block util_vector_logic_1 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'd:/Vivado_project/odinDDR/odin_ddr/odin_ddr.gen/sources_1/bd/design_1/ip/design_1_auto_ds_0/design_1_auto_ds_0_ooc.xdc'
+INFO: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'S_AXI'. A default connection has been created.
+INFO: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'M_AXI'. A default connection has been created.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps8_0_axi_periph/s00_couplers/auto_ds .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'd:/Vivado_project/odinDDR/odin_ddr/odin_ddr.gen/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps8_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file d:/Vivado_project/odinDDR/odin_ddr/odin_ddr.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file d:/Vivado_project/odinDDR/odin_ddr/odin_ddr.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File d:/Vivado_project/odinDDR/odin_ddr/odin_ddr.gen/sources_1/bd/design_1/synth/design_1.hwdef
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_ds_0, cache-ID = 6a5cc95894f55d61; cache size = 231.049 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_pc_0, cache-ID = 17a8c7c8b3d2ac37; cache size = 231.049 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_axi_smc_0, cache-ID = 5a4111a8ef491c19; cache size = 231.049 MB.
+[Sun Aug 21 15:20:35 2022] Launched design_1_SYSTEM_TOP_0_0_synth_1, design_1_clk_wiz_0_0_synth_1, design_1_util_vector_logic_0_0_synth_1, design_1_util_vector_logic_1_0_synth_1, design_1_zynq_ultra_ps_e_0_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_SYSTEM_TOP_0_0_synth_1: D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.runs/design_1_SYSTEM_TOP_0_0_synth_1/runme.log
+design_1_clk_wiz_0_0_synth_1: D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.runs/design_1_clk_wiz_0_0_synth_1/runme.log
+design_1_util_vector_logic_0_0_synth_1: D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.runs/design_1_util_vector_logic_0_0_synth_1/runme.log
+design_1_util_vector_logic_1_0_synth_1: D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.runs/design_1_util_vector_logic_1_0_synth_1/runme.log
+design_1_zynq_ultra_ps_e_0_0_synth_1: D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.runs/design_1_zynq_ultra_ps_e_0_0_synth_1/runme.log
+synth_1: D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.runs/synth_1/runme.log
+[Sun Aug 21 15:20:36 2022] Launched impl_1...
+Run output will be captured here: D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:57 ; elapsed = 00:00:58 . Memory (MB): peak = 3465.684 ; gain = 231.648
+delete_bd_objs [get_bd_nets util_vector_logic_0_Res] [get_bd_cells util_vector_logic_0]
+connect_bd_net [get_bd_pins clk_wiz_0/reset] [get_bd_pins rst_ps8_0_99M/peripheral_reset]
+save_bd_design
+Wrote  : <D:\Vivado_project\odinDDR\odin_ddr\odin_ddr.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+export_ip_user_files -of_objects  [get_files D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/constrs_1/new/d1.xdc] -no_script -reset -force -quiet
+remove_files  -fileset constrs_1 D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/constrs_1/new/d1.xdc
+regenerate_bd_layout
+regenerate_bd_layout
+generate_target all [get_files  D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/sources_1/bd/design_1/design_1.bd]
+INFO: [xilinx.com:ip:smartconnect:1.0-1] design_1_axi_smc_0: SmartConnect design_1_axi_smc_0 is in High-performance Mode.
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /ps8_0_axi_periph/s00_couplers/auto_ds/S_AXI(0) and /zynq_ultra_ps_e_0/M_AXI_HPM0_LPD(16)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /ps8_0_axi_periph/s00_couplers/auto_ds/S_AXI(0) and /zynq_ultra_ps_e_0/M_AXI_HPM0_LPD(16)
+WARNING: [BD 41-237] Bus Interface property AWUSER_WIDTH does not match between /zynq_ultra_ps_e_0/S_AXI_LPD(1) and /axi_smc/M00_AXI(0)
+WARNING: [BD 41-237] Bus Interface property ARUSER_WIDTH does not match between /zynq_ultra_ps_e_0/S_AXI_LPD(1) and /axi_smc/M00_AXI(0)
+WARNING: [BD 41-927] Following properties on pin /write_odin_0/ap_clk have been updated from connected ip, but BD cell '/write_odin_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 99990005 
+Please resolve any mismatches by directly setting properties on BD cell </write_odin_0> to completely resolve these warnings.
+WARNING: [BD 41-927] Following properties on pin /SYSTEM_TOP_0/CLK have been updated from connected ip, but BD cell '/SYSTEM_TOP_0' does not accept parameter changes, so they may not be synchronized with cell properties:
+	FREQ_HZ = 99990005 
+Please resolve any mismatches by directly setting properties on BD cell </SYSTEM_TOP_0> to completely resolve these warnings.
+Wrote  : <D:\Vivado_project\odinDDR\odin_ddr\odin_ddr.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc/S00_AXI_arlock'(1) to pin: '/write_odin_0/m_axi_gmem_ARLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc/S00_AXI_awlock'(1) to pin: '/write_odin_0/m_axi_gmem_AWLOCK'(2) - Only lower order bits will be connected.
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/read_odin_0/data'(32) to pin '/SYSTEM_TOP_0/AEROUT_ADDR'(8) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/SYSTEM_TOP_0/AERIN_ADDR'(17) to pin '/write_odin_0/data'(32) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+VHDL Output written to : d:/Vivado_project/odinDDR/odin_ddr/odin_ddr.gen/sources_1/bd/design_1/synth/design_1.v
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc/S00_AXI_arlock'(1) to pin: '/write_odin_0/m_axi_gmem_ARLOCK'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_smc/S00_AXI_awlock'(1) to pin: '/write_odin_0/m_axi_gmem_AWLOCK'(2) - Only lower order bits will be connected.
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/read_odin_0/data'(32) to pin '/SYSTEM_TOP_0/AEROUT_ADDR'(8) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+CRITICAL WARNING: [BD 41-2383] Width mismatch when connecting input pin '/SYSTEM_TOP_0/AERIN_ADDR'(17) to pin '/write_odin_0/data'(32) - Only lower order bits will be connected, and other input bits of this pin will be left unconnected.
+VHDL Output written to : d:/Vivado_project/odinDDR/odin_ddr/odin_ddr.gen/sources_1/bd/design_1/sim/design_1.v
+VHDL Output written to : d:/Vivado_project/odinDDR/odin_ddr/odin_ddr.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v
+Exporting to file d:/Vivado_project/odinDDR/odin_ddr/odin_ddr.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/hw_handoff/design_1_axi_smc_0.hwh
+Generated Block Design Tcl file d:/Vivado_project/odinDDR/odin_ddr/odin_ddr.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/hw_handoff/design_1_axi_smc_0_bd.tcl
+Generated Hardware Definition File d:/Vivado_project/odinDDR/odin_ddr/odin_ddr.gen/sources_1/bd/design_1/ip/design_1_axi_smc_0/bd_0/synth/design_1_axi_smc_0.hwdef
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_smc .
+CRITICAL WARNING: [IP_Flow 19-4965] IP neuron_mem_0 was packaged with board value 'xilinx.com:zcu102:part0:3.3'. Current project's board value is 'xilinx.com:zcu102:part0:3.4'. Please update the project settings to match the packaged IP.
+CRITICAL WARNING: [IP_Flow 19-4965] IP synapse_mem_0 was packaged with board value 'xilinx.com:zcu102:part0:3.3'. Current project's board value is 'xilinx.com:zcu102:part0:3.4'. Please update the project settings to match the packaged IP.
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'd:/Vivado_project/odinDDR/odin_ddr/odin_ddr.gen/sources_1/bd/design_1/ip/design_1_auto_ds_0/design_1_auto_ds_0_ooc.xdc'
+INFO: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'S_AXI'. A default connection has been created.
+INFO: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'M_AXI'. A default connection has been created.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps8_0_axi_periph/s00_couplers/auto_ds .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'd:/Vivado_project/odinDDR/odin_ddr/odin_ddr.gen/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps8_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file d:/Vivado_project/odinDDR/odin_ddr/odin_ddr.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file d:/Vivado_project/odinDDR/odin_ddr/odin_ddr.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File d:/Vivado_project/odinDDR/odin_ddr/odin_ddr.gen/sources_1/bd/design_1/synth/design_1.hwdef
+generate_target: Time (s): cpu = 00:00:16 ; elapsed = 00:00:14 . Memory (MB): peak = 3586.879 ; gain = 0.000
+catch { config_ip_cache -export [get_ips -all design_1_axi_smc_0] }
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_axi_smc_0, cache-ID = 5a4111a8ef491c19; cache size = 242.153 MB.
+catch { config_ip_cache -export [get_ips -all design_1_auto_ds_0] }
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_ds_0, cache-ID = 6a5cc95894f55d61; cache size = 242.153 MB.
+catch { config_ip_cache -export [get_ips -all design_1_auto_pc_0] }
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_pc_0, cache-ID = 17a8c7c8b3d2ac37; cache size = 242.153 MB.
+export_ip_user_files -of_objects [get_files D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/sources_1/bd/design_1/design_1.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/sources_1/bd/design_1/design_1.bd]
+export_simulation -of_objects [get_files D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/sources_1/bd/design_1/design_1.bd] -directory D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.ip_user_files/sim_scripts -ip_user_files_dir D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.ip_user_files -ipstatic_source_dir D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.cache/compile_simlib/modelsim} {questa=D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.cache/compile_simlib/questa} {riviera=D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.cache/compile_simlib/riviera} {activehdl=D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+[Sun Aug 21 15:40:33 2022] Launched synth_1...
+Run output will be captured here: D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.runs/synth_1/runme.log
+[Sun Aug 21 15:40:33 2022] Launched impl_1...
+Run output will be captured here: D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.runs/impl_1/runme.log
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:ac701:part0:1.4 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/ac701/1.4/board.xml as part xc7a200tfbg676-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26c:part0:1.1 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/k26c/1.1/board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26i:part0:1.1 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/k26i/1.1/board.xml as part xck26-sfvc784-2lvi-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kc705:part0:1.6 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kc705/1.6/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kv260:part0:1.1 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kv260/1.1/board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:sp701:part0:1.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/sp701/1.0/board.xml as part xc7s100fgga676-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:sp701:part0:1.1 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/sp701/1.1/board.xml as part xc7s100fgga676-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc707:part0:1.4 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vc707/1.4/board.xml as part xc7vx485tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc709:part0:1.8 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vc709/1.8/board.xml as part xc7vx690tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_es:part0:1.1 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/es/1.1/board.xml as part xcvc1902-vsva2197-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_es:part0:1.2 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/es/1.2/board.xml as part xcvc1902-vsva2197-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_es:part0:1.3 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/es/1.3/board.xml as part xcvc1902-vsva2197-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vermeo_t1_mpsoc:part0:1.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vermeo_t1_mpsoc/1.0/board.xml as part xczu19eg-ffvd1760-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vermeo_t1_rfsoc:part0:1.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vermeo_t1_rfsoc/1.0/board.xml as part xczu21dr-ffvd1156-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:2.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/2.0/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:2.1 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/2.1/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:2.2 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/2.2/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180_es:part0:1.1 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/es/1.1/board.xml as part xcvm1802-vsva2197-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180_es:part0:1.2 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/es/1.2/board.xml as part xcvm1802-vsva2197-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180_es:part0:1.3 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/es/1.3/board.xml as part xcvm1802-vsva2197-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.2 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.2/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.3 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.3/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.4 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.4/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1275:part0:1.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu1275/1.0/board.xml as part xczu29dr-ffvf1760-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1285:part0:1.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu1285/1.0/board.xml as part xczu39dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208:part0:2.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/production/2.0/board.xml as part xczu48dr-fsvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208_es:part0:1.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/es/1.0/board.xml as part xczu48dr-fsvg1517-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208_es:part0:1.1 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/es/1.1/board.xml as part xczu48dr-fsvg1517-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208_es:part0:1.2 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/es/1.2/board.xml as part xczu48dr-fsvg1517-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld_es:part0:1.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/es/1.0/board.xml as part xczu58dr-fsvg1517-2-i-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216:part0:2.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216/production/2.0/board.xml as part xczu49dr-ffvf1760-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216_es:part0:1.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216/es/1.0/board.xml as part xczu49dr-ffvf1760-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216_es:part0:1.1 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216/es/1.1/board.xml as part xczu49dr-ffvf1760-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216_es:part0:1.2 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216/es/1.2/board.xml as part xczu49dr-ffvf1760-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld_es:part0:1.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/es/1.0/board.xml as part xczu59dr-ffvf1760-2-i-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:ac701:part0:1.4 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/ac701/1.4/board.xml as part xc7a200tfbg676-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26c:part0:1.1 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/k26c/1.1/board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26i:part0:1.1 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/k26i/1.1/board.xml as part xck26-sfvc784-2lvi-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kc705:part0:1.6 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kc705/1.6/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kv260:part0:1.1 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kv260/1.1/board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:sp701:part0:1.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/sp701/1.0/board.xml as part xc7s100fgga676-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:sp701:part0:1.1 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/sp701/1.1/board.xml as part xc7s100fgga676-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc707:part0:1.4 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vc707/1.4/board.xml as part xc7vx485tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc709:part0:1.8 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vc709/1.8/board.xml as part xc7vx690tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_es:part0:1.1 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/es/1.1/board.xml as part xcvc1902-vsva2197-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_es:part0:1.2 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/es/1.2/board.xml as part xcvc1902-vsva2197-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_es:part0:1.3 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/es/1.3/board.xml as part xcvc1902-vsva2197-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vermeo_t1_mpsoc:part0:1.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vermeo_t1_mpsoc/1.0/board.xml as part xczu19eg-ffvd1760-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vermeo_t1_rfsoc:part0:1.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vermeo_t1_rfsoc/1.0/board.xml as part xczu21dr-ffvd1156-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:2.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/2.0/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:2.1 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/2.1/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:2.2 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/2.2/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180_es:part0:1.1 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/es/1.1/board.xml as part xcvm1802-vsva2197-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180_es:part0:1.2 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/es/1.2/board.xml as part xcvm1802-vsva2197-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180_es:part0:1.3 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/es/1.3/board.xml as part xcvm1802-vsva2197-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.2 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.2/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.3 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.3/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.4 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.4/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1275:part0:1.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu1275/1.0/board.xml as part xczu29dr-ffvf1760-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1285:part0:1.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu1285/1.0/board.xml as part xczu39dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208:part0:2.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/production/2.0/board.xml as part xczu48dr-fsvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208_es:part0:1.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/es/1.0/board.xml as part xczu48dr-fsvg1517-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208_es:part0:1.1 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/es/1.1/board.xml as part xczu48dr-fsvg1517-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208_es:part0:1.2 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/es/1.2/board.xml as part xczu48dr-fsvg1517-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld_es:part0:1.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/es/1.0/board.xml as part xczu58dr-fsvg1517-2-i-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216:part0:2.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216/production/2.0/board.xml as part xczu49dr-ffvf1760-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216_es:part0:1.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216/es/1.0/board.xml as part xczu49dr-ffvf1760-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216_es:part0:1.1 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216/es/1.1/board.xml as part xczu49dr-ffvf1760-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216_es:part0:1.2 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216/es/1.2/board.xml as part xczu49dr-ffvf1760-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld_es:part0:1.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/es/1.0/board.xml as part xczu59dr-ffvf1760-2-i-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:ac701:part0:1.4 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/ac701/1.4/board.xml as part xc7a200tfbg676-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26c:part0:1.1 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/k26c/1.1/board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:k26i:part0:1.1 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/k26i/1.1/board.xml as part xck26-sfvc784-2lvi-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kc705:part0:1.6 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kc705/1.6/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kv260:part0:1.1 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kv260/1.1/board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:sp701:part0:1.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/sp701/1.0/board.xml as part xc7s100fgga676-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:sp701:part0:1.1 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/sp701/1.1/board.xml as part xc7s100fgga676-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc707:part0:1.4 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vc707/1.4/board.xml as part xc7vx485tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc709:part0:1.8 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vc709/1.8/board.xml as part xc7vx690tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_es:part0:1.1 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/es/1.1/board.xml as part xcvc1902-vsva2197-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_es:part0:1.2 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/es/1.2/board.xml as part xcvc1902-vsva2197-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_es:part0:1.3 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/es/1.3/board.xml as part xcvc1902-vsva2197-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vermeo_t1_mpsoc:part0:1.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vermeo_t1_mpsoc/1.0/board.xml as part xczu19eg-ffvd1760-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vermeo_t1_rfsoc:part0:1.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vermeo_t1_rfsoc/1.0/board.xml as part xczu21dr-ffvd1156-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:2.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/2.0/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:2.1 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/2.1/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:2.2 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/2.2/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180_es:part0:1.1 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/es/1.1/board.xml as part xcvm1802-vsva2197-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180_es:part0:1.2 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/es/1.2/board.xml as part xcvm1802-vsva2197-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180_es:part0:1.3 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/es/1.3/board.xml as part xcvm1802-vsva2197-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.2 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.2/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.3 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.3/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.4 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.4/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1275:part0:1.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu1275/1.0/board.xml as part xczu29dr-ffvf1760-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1285:part0:1.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu1285/1.0/board.xml as part xczu39dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208:part0:2.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/production/2.0/board.xml as part xczu48dr-fsvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208_es:part0:1.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/es/1.0/board.xml as part xczu48dr-fsvg1517-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208_es:part0:1.1 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/es/1.1/board.xml as part xczu48dr-fsvg1517-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208_es:part0:1.2 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/es/1.2/board.xml as part xczu48dr-fsvg1517-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld_es:part0:1.0 available at D:/Xilinx/Vivado/2021.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/es/1.0/board.xml as part xczu58dr-fsvg1517-2-i-es1 specified in board_part file is either invalid or not available
+INFO: [Common 17-14] Message 'Board 49-26' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+write_hw_platform -fixed -include_bit -force -file D:/Vivado_project/odinDDR/odin_ddr/design_1_wrapper.xsa
+INFO: [Vivado 12-4895] Creating Hardware Platform: D:/Vivado_project/odinDDR/odin_ddr/design_1_wrapper.xsa ...
+INFO: [Hsi 55-2053] elapsed time for repository (D:/Xilinx/Vivado/2021.1/data/embeddedsw) loading 0 seconds
+INFO: [Vivado 12-12464] The Hardware Platform can be used for Hardware
+INFO: [Vivado 12-4896] Successfully created Hardware Platform: D:/Vivado_project/odinDDR/odin_ddr/design_1_wrapper.xsa
+write_hw_platform: Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 3611.543 ; gain = 24.422
+INFO: [Vivado 12-8231] Launching Vitis
+INFO: [Vivado 12-417] Running vitis
+INFO: [Vivado 12-8232] Vitis launch initiated. Please check console for any further messages.
+regenerate_bd_layout
+set_property HDL_ATTRIBUTE.DEBUG true [get_bd_nets {write_odin_0_data }]
+true
+set_property HDL_ATTRIBUTE.DEBUG true [get_bd_nets {write_odin_0_data_ap_vld }]
+true
+set_property HDL_ATTRIBUTE.DEBUG true [get_bd_nets {SYSTEM_TOP_0_AERIN_ACK }]
+true
+save_bd_design
+Wrote  : <D:\Vivado_project\odinDDR\odin_ddr\odin_ddr.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+set_property HDL_ATTRIBUTE.DEBUG true [get_bd_nets {rst_ps8_0_99M_peripheral_aresetn }]
+true
+set_property HDL_ATTRIBUTE.DEBUG true [get_bd_nets {zynq_ultra_ps_e_0_pl_clk0 }]
+true
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:debug -dict [list \
+                                                          [get_bd_nets rst_ps8_0_99M_peripheral_aresetn] {PROBE_TYPE "Data and Trigger" CLK_SRC "/zynq_ultra_ps_e_0/pl_clk0" SYSTEM_ILA "Auto" } \
+                                                          [get_bd_nets SYSTEM_TOP_0_AERIN_ACK] {PROBE_TYPE "Data and Trigger" CLK_SRC "/zynq_ultra_ps_e_0/pl_clk0" SYSTEM_ILA "Auto" } \
+                                                          [get_bd_nets write_odin_0_data] {PROBE_TYPE "Data and Trigger" CLK_SRC "/zynq_ultra_ps_e_0/pl_clk0" SYSTEM_ILA "Auto" } \
+                                                          [get_bd_nets write_odin_0_data_ap_vld] {PROBE_TYPE "Data and Trigger" CLK_SRC "/zynq_ultra_ps_e_0/pl_clk0" SYSTEM_ILA "Auto" } \
+                                                          [get_bd_nets zynq_ultra_ps_e_0_pl_clk0] {PROBE_TYPE "Data and Trigger" CLK_SRC "None (Connect manually)" SYSTEM_ILA "Auto" } \
+                                                         ]
+Debug Automation : Instantiating new System ILA block '/system_ila_0' with mode NATIVE, 0 slot interface pins and 4 probe pins. Also setting parameters on this block, corresponding to newly enabled interface pins and probe pins as specified via Debug Automation.
+Debug Automation : Connecting source clock pin /zynq_ultra_ps_e_0/pl_clk0 to the following sink clock pins :
+/system_ila_0/clk
+Debug Automation : Connecting net /rst_ps8_0_99M_peripheral_aresetn, to System ILA probe pin /system_ila_0/probe0 for debug.
+Debug Automation : Connecting net /SYSTEM_TOP_0_AERIN_ACK, to System ILA probe pin /system_ila_0/probe1 for debug.
+Debug Automation : Connecting net /write_odin_0_data, to System ILA probe pin /system_ila_0/probe2 for debug.
+Debug Automation : Connecting net /write_odin_0_data_ap_vld, to System ILA probe pin /system_ila_0/probe3 for debug.
+Debug Automation : Instantiating new System ILA block '/system_ila_1' with mode NATIVE, 0 slot interface pins and 1 probe pins. Also setting parameters on this block, corresponding to newly enabled interface pins and probe pins as specified via Debug Automation.
+Debug Automation : Connecting net /zynq_ultra_ps_e_0_pl_clk0, to System ILA probe pin /system_ila_1/probe0 for debug.
+endgroup
+delete_bd_objs [get_bd_cells system_ila_1]
+startgroup
+set_property HDL_ATTRIBUTE.DEBUG false [get_bd_nets { zynq_ultra_ps_e_0_pl_clk0 } ]
+endgroup
+startgroup
+set_property -dict [list CONFIG.C_DATA_DEPTH {2048} CONFIG.C_EN_STRG_QUAL {1} CONFIG.C_ADV_TRIGGER {true} CONFIG.C_PROBE3_MU_CNT {2} CONFIG.C_PROBE2_MU_CNT {2} CONFIG.C_PROBE1_MU_CNT {2} CONFIG.C_PROBE0_MU_CNT {2} CONFIG.ALL_PROBE_SAME_MU_CNT {2}] [get_bd_cells system_ila_0]
+endgroup
+delete_bd_objs [get_bd_cells system_ila_0]
+create_bd_cell -type ip -vlnv xilinx.com:ip:ila:6.2 ila_0
+INFO: [xilinx.com:ip:ila:6.2-6] /ila_0: Xilinx recommends using the System ILA IP in IP Integrator. The System ILA IP is functionally equivalent to an ILA and offers additional benefits in debugging interfaces both within IP Integrator and the Hardware Manager. Consult the Programming and Debug User Guide UG908 for further details.
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4331] Invalid usage of property - Setting value property on PARAM_VALUE.ALL_PROBE_SAME_MU is not allowed in procedure update_gui_for_PARAM_VALUE.C_ADV_TRIGGER
+set_property -dict [list CONFIG.C_PROBE3_WIDTH {32} CONFIG.C_DATA_DEPTH {2048} CONFIG.C_NUM_OF_PROBES {4} CONFIG.C_EN_STRG_QUAL {1} CONFIG.C_ADV_TRIGGER {true} CONFIG.C_PROBE3_MU_CNT {2} CONFIG.C_PROBE2_MU_CNT {2} CONFIG.C_PROBE1_MU_CNT {2} CONFIG.C_PROBE0_MU_CNT {2} CONFIG.ALL_PROBE_SAME_MU_CNT {2} CONFIG.C_ENABLE_ILA_AXI_MON {false} CONFIG.C_MONITOR_TYPE {Native}] [get_bd_cells ila_0]
+connect_bd_net [get_bd_pins ila_0/clk] [get_bd_pins zynq_ultra_ps_e_0/pl_clk0]
+connect_bd_net [get_bd_pins ila_0/probe0] [get_bd_pins write_odin_0/data_ap_vld]
+connect_bd_net [get_bd_pins ila_0/probe3] [get_bd_pins write_odin_0/data]
+connect_bd_net [get_bd_pins ila_0/probe1] [get_bd_pins SYSTEM_TOP_0/AERIN_ACK]
+connect_bd_net [get_bd_pins ila_0/probe2] [get_bd_pins rst_ps8_0_99M/peripheral_aresetn]
+regenerate_bd_layout
+save_bd_design
+Wrote  : <D:\Vivado_project\odinDDR\odin_ddr\odin_ddr.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <D:/Vivado_project/odinDDR/odin_ddr/odin_ddr.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4331] Invalid usage of property - Setting value property on PARAM_VALUE.ALL_PROBE_SAME_MU is not allowed in procedure update_gui_for_PARAM_VALUE.C_ADV_TRIGGER
+startgroup
+set_property -dict [list CONFIG.C_TRIGOUT_EN {false} CONFIG.C_INPUT_PIPE_STAGES {3} CONFIG.C_TRIGIN_EN {false}] [get_bd_cells ila_0]
+endgroup
+regenerate_bd_layout
+set_property location {3 1187 495} [get_bd_cells write_odin_0]
+regenerate_bd_layout
+WARNING: [IP_Flow 19-4318] IP-XACT file does not exist: d:/Vivado_project/ip_package/xilinx_com_hls_write_odin_1_0/component.xml. It will be created.
+update_ip_catalog -rebuild -scan_changes
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/Vivado_project/ip_package'.

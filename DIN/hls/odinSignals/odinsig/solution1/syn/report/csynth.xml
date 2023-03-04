@@ -1,0 +1,777 @@
+<profile>
+    <ReportVersion>
+        <Version>2021.1</Version>
+    </ReportVersion>
+    <UserAssignments>
+        <unit>ns</unit>
+        <ProductFamily>zynquplus</ProductFamily>
+        <Part>xczu9eg-ffvb1156-2-e</Part>
+        <TopModelName>odinsigs</TopModelName>
+        <TargetClockPeriod>10.00</TargetClockPeriod>
+        <ClockUncertainty>2.70</ClockUncertainty>
+        <FlowTarget>vivado</FlowTarget>
+    </UserAssignments>
+    <PerformanceEstimates>
+        <PipelineType>no</PipelineType>
+        <SummaryOfTimingAnalysis>
+            <unit>ns</unit>
+            <EstimatedClockPeriod>1.000</EstimatedClockPeriod>
+        </SummaryOfTimingAnalysis>
+        <SummaryOfOverallLatency>
+            <unit>clock cycles</unit>
+            <Best-caseLatency>2</Best-caseLatency>
+            <Average-caseLatency>2</Average-caseLatency>
+            <Worst-caseLatency>2</Worst-caseLatency>
+            <Best-caseRealTimeLatency>20.000 ns</Best-caseRealTimeLatency>
+            <Average-caseRealTimeLatency>20.000 ns</Average-caseRealTimeLatency>
+            <Worst-caseRealTimeLatency>20.000 ns</Worst-caseRealTimeLatency>
+            <Interval-min>3</Interval-min>
+            <Interval-max>3</Interval-max>
+        </SummaryOfOverallLatency>
+    </PerformanceEstimates>
+    <AreaEstimates>
+        <Resources>
+            <BRAM_18K>0</BRAM_18K>
+            <FF>623</FF>
+            <LUT>510</LUT>
+            <URAM>0</URAM>
+            <DSP>0</DSP>
+        </Resources>
+        <AvailableResources>
+            <BRAM_18K>1824</BRAM_18K>
+            <DSP>2520</DSP>
+            <FF>548160</FF>
+            <LUT>274080</LUT>
+            <URAM>0</URAM>
+        </AvailableResources>
+    </AreaEstimates>
+    <InterfaceSummary>
+        <RtlPorts>
+            <name>s_axi_control_AWVALID</name>
+            <Object>control</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_AWREADY</name>
+            <Object>control</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_AWADDR</name>
+            <Object>control</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>7</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_WVALID</name>
+            <Object>control</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_WREADY</name>
+            <Object>control</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_WDATA</name>
+            <Object>control</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_WSTRB</name>
+            <Object>control</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>4</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_ARVALID</name>
+            <Object>control</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_ARREADY</name>
+            <Object>control</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_ARADDR</name>
+            <Object>control</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>7</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_RVALID</name>
+            <Object>control</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_RREADY</name>
+            <Object>control</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_RDATA</name>
+            <Object>control</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_RRESP</name>
+            <Object>control</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>out</Dir>
+            <Bits>2</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_BVALID</name>
+            <Object>control</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_BREADY</name>
+            <Object>control</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>s_axi_control_BRESP</name>
+            <Object>control</Object>
+            <Type>pointer</Type>
+            <IOProtocol>s_axi</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>out</Dir>
+            <Bits>2</Bits>
+            <Attribute>unknown</Attribute>
+            <CType>int</CType>
+            <HasCtrl>1</HasCtrl>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_clk</name>
+            <Object>odinsigs</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_rst_n</name>
+            <Object>odinsigs</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>interrupt</name>
+            <Object>odinsigs</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_hs</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>unknown</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>AEROUT_ADDR</name>
+            <Object>AEROUT_ADDR</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>AEROUT_REQ</name>
+            <Object>AEROUT_REQ</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>AEROUT_ACK</name>
+            <Object>AEROUT_ACK</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>CTRL_SCHED_POP_N</name>
+            <Object>CTRL_SCHED_POP_N</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>CTRL_NEURMEM_ADDR</name>
+            <Object>CTRL_NEURMEM_ADDR</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>AEROUT_CTRL_BUSY</name>
+            <Object>AEROUT_CTRL_BUSY</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+    </InterfaceSummary>
+    <RTLDesignHierarchy>
+        <TopModule MAX_DEPTH="1">
+            <ModuleName>odinsigs</ModuleName>
+        </TopModule>
+    </RTLDesignHierarchy>
+    <ModuleInformation>
+        <Module>
+            <Name>odinsigs</Name>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>1.000</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>2</Best-caseLatency>
+                    <Average-caseLatency>2</Average-caseLatency>
+                    <Worst-caseLatency>2</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>20.000 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>20.000 ns</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>20.000 ns</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>3</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>1824</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <FF>623</FF>
+                    <AVAIL_FF>548160</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>510</LUT>
+                    <AVAIL_LUT>274080</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>2520</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                </Resources>
+            </AreaEstimates>
+        </Module>
+    </ModuleInformation>
+    <FIFOInformation/>
+    <UserConfigCommands/>
+    <Args>
+        <Arg ArgName="addr_o" index="0" direction="out" srcType="*" srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="addr_o" usage="data" direction="out"/>
+                <hwRef type="register" interface="s_axi_control" name="addr_o_ctrl" usage="control" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="req_o" index="1" direction="out" srcType="*" srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="req_o" usage="data" direction="out"/>
+                <hwRef type="register" interface="s_axi_control" name="req_o_ctrl" usage="control" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="ack_o" index="2" direction="in" srcType="*" srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="ack_o" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="AEROUT_ADDR" index="3" direction="in" srcType="*" srcSize="32">
+            <hwRefs>
+                <hwRef type="port" interface="AEROUT_ADDR" name="AEROUT_ADDR" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="AEROUT_REQ" index="4" direction="in" srcType="*" srcSize="32">
+            <hwRefs>
+                <hwRef type="port" interface="AEROUT_REQ" name="AEROUT_REQ" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="AEROUT_ACK" index="5" direction="out" srcType="*" srcSize="32">
+            <hwRefs>
+                <hwRef type="port" interface="AEROUT_ACK" name="AEROUT_ACK" usage="data" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="writeloc" index="6" direction="unused" srcType="*" srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="writeloc" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="pop_n" index="7" direction="out" srcType="*" srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="pop_n" usage="data" direction="out"/>
+                <hwRef type="register" interface="s_axi_control" name="pop_n_ctrl" usage="control" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="postneuron" index="8" direction="out" srcType="*" srcSize="32">
+            <hwRefs>
+                <hwRef type="register" interface="s_axi_control" name="postneuron" usage="data" direction="out"/>
+                <hwRef type="register" interface="s_axi_control" name="postneuron_ctrl" usage="control" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="CTRL_SCHED_POP_N" index="9" direction="in" srcType="*" srcSize="32">
+            <hwRefs>
+                <hwRef type="port" interface="CTRL_SCHED_POP_N" name="CTRL_SCHED_POP_N" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="CTRL_NEURMEM_ADDR" index="10" direction="in" srcType="*" srcSize="32">
+            <hwRefs>
+                <hwRef type="port" interface="CTRL_NEURMEM_ADDR" name="CTRL_NEURMEM_ADDR" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="AEROUT_CTRL_BUSY" index="11" direction="unused" srcType="*" srcSize="32">
+            <hwRefs>
+                <hwRef type="port" interface="AEROUT_CTRL_BUSY" name="AEROUT_CTRL_BUSY" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+    </Args>
+    <ReturnValue ReturnValueName="srcType">int</ReturnValue>
+    <ReturnValue ReturnValueName="srcSize">32</ReturnValue>
+    <ReturnValue ReturnValueName="hwRefs" type="register" interface="s_axi_control" name="ap_return" usage="data" direction="out"/>
+    <Interfaces>
+        <Interface InterfaceName="s_axi_control" type="axi4lite" busTypeName="aximm" mode="slave" dataWidth="32" addrWidth="7" portPrefix="s_axi_control_" paramPrefix="C_S_AXI_CONTROL_">
+            <ports>
+                <port>s_axi_control_ARADDR</port>
+                <port>s_axi_control_ARREADY</port>
+                <port>s_axi_control_ARVALID</port>
+                <port>s_axi_control_AWADDR</port>
+                <port>s_axi_control_AWREADY</port>
+                <port>s_axi_control_AWVALID</port>
+                <port>s_axi_control_BREADY</port>
+                <port>s_axi_control_BRESP</port>
+                <port>s_axi_control_BVALID</port>
+                <port>s_axi_control_RDATA</port>
+                <port>s_axi_control_RREADY</port>
+                <port>s_axi_control_RRESP</port>
+                <port>s_axi_control_RVALID</port>
+                <port>s_axi_control_WDATA</port>
+                <port>s_axi_control_WREADY</port>
+                <port>s_axi_control_WSTRB</port>
+                <port>s_axi_control_WVALID</port>
+            </ports>
+            <registers>
+                <register offset="0x00" name="CTRL" access="RW" description="Control signals" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="AP_START" access="RW" description="Control signal Register for 'ap_start'."/>
+                        <field offset="1" width="1" name="AP_DONE" access="R" description="Control signal Register for 'ap_done'."/>
+                        <field offset="2" width="1" name="AP_IDLE" access="R" description="Control signal Register for 'ap_idle'."/>
+                        <field offset="3" width="1" name="AP_READY" access="R" description="Control signal Register for 'ap_ready'."/>
+                        <field offset="4" width="3" name="RESERVED_1" access="R" description="Reserved.  0s on read."/>
+                        <field offset="7" width="1" name="AUTO_RESTART" access="RW" description="Control signal Register for 'auto_restart'."/>
+                        <field offset="8" width="1" name="RESERVED_2" access="R" description="Reserved.  0s on read."/>
+                        <field offset="9" width="1" name="RESERVED_3" access="R" description="Reserved.  0s on read."/>
+                        <field offset="10" width="22" name="RESERVED_4" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x04" name="GIER" access="RW" description="Global Interrupt Enable Register" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="Enable" access="RW" description="Master enable for the device interrupt output to the system interrupt controller: 0 = Disabled, 1 = Enabled"/>
+                        <field offset="1" width="31" name="RESERVED" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x08" name="IP_IER" access="RW" description="IP Interrupt Enable Register" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="CHAN0_INT_EN" access="RW" description="Enable Channel 0 (ap_done) Interrupt.  0 = Disabled, 1 = Enabled."/>
+                        <field offset="1" width="1" name="CHAN1_INT_EN" access="RW" description="Enable Channel 1 (ap_ready) Interrupt.  0 = Disabled, 1 = Enabled."/>
+                        <field offset="2" width="30" name="RESERVED" access="R" description="Reserved.  0s on read."/>
+                        <field offset="2" width="30" name="RESERVED" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x0c" name="IP_ISR" access="RW" description="IP Interrupt Status Register" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="CHAN0_INT_ST" access="RTOW" description="Channel 0 (ap_done) Interrupt Status. 0 = No Channel 0 input interrupt, 1 = Channel 0 input interrup"/>
+                        <field offset="1" width="1" name="CHAN1_INT_ST" access="RTOW" description="Channel 1 (ap_ready) Interrupt Status. 0 = No Channel 1 input interrupt, 1 = Channel 1 input interrup"/>
+                        <field offset="2" width="30" name="RESERVED" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x10" name="ap_return" access="R" description="Data signal of ap_return" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="ap_return" access="R" description="Bit 31 to 0 of ap_return"/>
+                    </fields>
+                </register>
+                <register offset="0x18" name="addr_o" access="R" description="Data signal of addr_o" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="addr_o" access="R" description="Bit 31 to 0 of addr_o"/>
+                    </fields>
+                </register>
+                <register offset="0x1c" name="addr_o_ctrl" access="R" description="Control signal of addr_o" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="addr_o_ap_vld" access="R" description="Control signal addr_o_ap_vld"/>
+                        <field offset="1" width="31" name="RESERVED" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x28" name="req_o" access="R" description="Data signal of req_o" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="req_o" access="R" description="Bit 31 to 0 of req_o"/>
+                    </fields>
+                </register>
+                <register offset="0x2c" name="req_o_ctrl" access="R" description="Control signal of req_o" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="req_o_ap_vld" access="R" description="Control signal req_o_ap_vld"/>
+                        <field offset="1" width="31" name="RESERVED" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x38" name="ack_o" access="W" description="Data signal of ack_o" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="ack_o" access="W" description="Bit 31 to 0 of ack_o"/>
+                    </fields>
+                </register>
+                <register offset="0x40" name="writeloc" access="W" description="Data signal of writeloc" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="writeloc" access="W" description="Bit 31 to 0 of writeloc"/>
+                    </fields>
+                </register>
+                <register offset="0x48" name="pop_n" access="R" description="Data signal of pop_n" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="pop_n" access="R" description="Bit 31 to 0 of pop_n"/>
+                    </fields>
+                </register>
+                <register offset="0x4c" name="pop_n_ctrl" access="R" description="Control signal of pop_n" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="pop_n_ap_vld" access="R" description="Control signal pop_n_ap_vld"/>
+                        <field offset="1" width="31" name="RESERVED" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+                <register offset="0x58" name="postneuron" access="R" description="Data signal of postneuron" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="postneuron" access="R" description="Bit 31 to 0 of postneuron"/>
+                    </fields>
+                </register>
+                <register offset="0x5c" name="postneuron_ctrl" access="R" description="Control signal of postneuron" range="32">
+                    <fields>
+                        <field offset="0" width="1" name="postneuron_ap_vld" access="R" description="Control signal postneuron_ap_vld"/>
+                        <field offset="1" width="31" name="RESERVED" access="R" description="Reserved.  0s on read."/>
+                    </fields>
+                </register>
+            </registers>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="1" offset="24" argName="addr_o"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="1" offset="40" argName="req_o"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="1" offset="56" argName="ack_o"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="1" offset="64" argName="writeloc"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="1" offset="72" argName="pop_n"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="1" offset="88" argName="postneuron"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="ap_clk" type="clock" busTypeName="clock" mode="slave">
+            <busParams>
+                <busParam busParamName="ASSOCIATED_BUSIF">s_axi_control</busParam>
+                <busParam busParamName="ASSOCIATED_RESET">ap_rst_n</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_clk">CLK</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_clk</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="ap_rst_n" type="reset" busTypeName="reset" mode="slave">
+            <busParams>
+                <busParam busParamName="POLARITY">ACTIVE_LOW</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_rst_n">RST</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_rst_n</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="interrupt" type="interrupt" busTypeName="interrupt" mode="master" dataWidth="1">
+            <busParams>
+                <busParam busParamName="SENSITIVITY">LEVEL_HIGH</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="interrupt">INTERRUPT</portMap>
+            </portMaps>
+            <ports>
+                <port>interrupt</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="AEROUT_ADDR" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="32">
+            <portMaps>
+                <portMap portMapName="AEROUT_ADDR">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>AEROUT_ADDR</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="1" argName="AEROUT_ADDR"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="AEROUT_REQ" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="32">
+            <portMaps>
+                <portMap portMapName="AEROUT_REQ">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>AEROUT_REQ</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="1" argName="AEROUT_REQ"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="AEROUT_ACK" type="data" busTypeName="data" protocol="ap_none" mode="master" dataWidth="32">
+            <portMaps>
+                <portMap portMapName="AEROUT_ACK">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>AEROUT_ACK</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="1" argName="AEROUT_ACK"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="CTRL_SCHED_POP_N" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="32">
+            <portMaps>
+                <portMap portMapName="CTRL_SCHED_POP_N">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>CTRL_SCHED_POP_N</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="1" argName="CTRL_SCHED_POP_N"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="CTRL_NEURMEM_ADDR" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="32">
+            <portMaps>
+                <portMap portMapName="CTRL_NEURMEM_ADDR">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>CTRL_NEURMEM_ADDR</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="1" argName="CTRL_NEURMEM_ADDR"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="AEROUT_CTRL_BUSY" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="32">
+            <portMaps>
+                <portMap portMapName="AEROUT_CTRL_BUSY">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>AEROUT_CTRL_BUSY</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="1" argName="AEROUT_CTRL_BUSY"/>
+            </constraints>
+        </Interface>
+    </Interfaces>
+    <ReportHWInterface>
+        <section name="HW Interfaces" level="0">
+            <item name="S_AXILITE">
+                <table isCollapsed="0">
+                    <keys size="5">Interface, Data Width, Address Width, Offset, Register</keys>
+                    <column name="s_axi_control">32, 7, 24, 1</column>
+                </table>
+            </item>
+            <item name="REGISTER">
+                <table isCollapsed="0">
+                    <keys size="3">Interface, Mode, Bitwidth</keys>
+                    <column name="AEROUT_ACK">ap_none, 32</column>
+                    <column name="AEROUT_ADDR">ap_none, 32</column>
+                    <column name="AEROUT_CTRL_BUSY">ap_none, 32</column>
+                    <column name="AEROUT_REQ">ap_none, 32</column>
+                    <column name="CTRL_NEURMEM_ADDR">ap_none, 32</column>
+                    <column name="CTRL_SCHED_POP_N">ap_none, 32</column>
+                </table>
+            </item>
+            <item name="TOP LEVEL CONTROL">
+                <table isCollapsed="0">
+                    <keys size="3">Interface, Type, Ports</keys>
+                    <column name="ap_clk">clock, ap_clk</column>
+                    <column name="ap_rst_n">reset, ap_rst_n</column>
+                    <column name="interrupt">interrupt, interrupt</column>
+                    <column name="ap_ctrl">ap_ctrl_hs</column>
+                </table>
+            </item>
+        </section>
+    </ReportHWInterface>
+    <ReportSWInterface>
+        <section name="SW I/O Information" level="0">
+            <item name="Top Function Arguments">
+                <table isCollapsed="1">
+                    <keys size="3">Argument, Direction, Datatype</keys>
+                    <column name="addr_o">out, pointer</column>
+                    <column name="req_o">out, pointer</column>
+                    <column name="ack_o">in, pointer</column>
+                    <column name="AEROUT_ADDR">in, pointer</column>
+                    <column name="AEROUT_REQ">in, pointer</column>
+                    <column name="AEROUT_ACK">out, pointer</column>
+                    <column name="writeloc">unused, pointer</column>
+                    <column name="pop_n">out, pointer</column>
+                    <column name="postneuron">out, pointer</column>
+                    <column name="CTRL_SCHED_POP_N">in, pointer</column>
+                    <column name="CTRL_NEURMEM_ADDR">in, pointer</column>
+                    <column name="AEROUT_CTRL_BUSY">unused, pointer</column>
+                    <column name="return">out, int</column>
+                </table>
+            </item>
+            <item name="SW-to-HW Mapping">
+                <table isCollapsed="1">
+                    <keys size="4">Argument, HW Name, HW Type, HW Info</keys>
+                    <column name="addr_o">s_axi_control addr_o, register, offset=0x18 range=32</column>
+                    <column name="addr_o">s_axi_control addr_o_ctrl, register, offset=0x1c range=32</column>
+                    <column name="req_o">s_axi_control req_o, register, offset=0x28 range=32</column>
+                    <column name="req_o">s_axi_control req_o_ctrl, register, offset=0x2c range=32</column>
+                    <column name="ack_o">s_axi_control ack_o, register, offset=0x38 range=32</column>
+                    <column name="AEROUT_ADDR">AEROUT_ADDR, port, </column>
+                    <column name="AEROUT_REQ">AEROUT_REQ, port, </column>
+                    <column name="AEROUT_ACK">AEROUT_ACK, port, </column>
+                    <column name="writeloc">s_axi_control writeloc, register, offset=0x40 range=32</column>
+                    <column name="pop_n">s_axi_control pop_n, register, offset=0x48 range=32</column>
+                    <column name="pop_n">s_axi_control pop_n_ctrl, register, offset=0x4c range=32</column>
+                    <column name="postneuron">s_axi_control postneuron, register, offset=0x58 range=32</column>
+                    <column name="postneuron">s_axi_control postneuron_ctrl, register, offset=0x5c range=32</column>
+                    <column name="CTRL_SCHED_POP_N">CTRL_SCHED_POP_N, port, </column>
+                    <column name="CTRL_NEURMEM_ADDR">CTRL_NEURMEM_ADDR, port, </column>
+                    <column name="AEROUT_CTRL_BUSY">AEROUT_CTRL_BUSY, port, </column>
+                    <column name="return">s_axi_control ap_return, register, offset=0x10 range=32</column>
+                </table>
+            </item>
+        </section>
+    </ReportSWInterface>
+</profile>
+

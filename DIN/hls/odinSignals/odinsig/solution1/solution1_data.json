@@ -1,0 +1,1004 @@
+{
+  "Top": "odinsigs",
+  "RtlTop": "odinsigs",
+  "RtlPrefix": "",
+  "RtlSubPrefix": "odinsigs_",
+  "SourceLanguage": "c",
+  "HostMachineBits": "64",
+  "FunctionProtocol": "ap_ctrl_hs",
+  "ResetStyle": "control",
+  "Target": {
+    "Family": "zynquplus",
+    "Device": "xczu9eg",
+    "Package": "-ffvb1156",
+    "Speed": "-2-e",
+    "Triple": "fpga64-xilinx-none"
+  },
+  "Args": {
+    "addr_o": {
+      "index": "0",
+      "direction": "out",
+      "srcType": "*",
+      "srcSize": "32",
+      "hwRefs": [
+        {
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "addr_o",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "addr_o_ctrl",
+          "usage": "control",
+          "direction": "out"
+        }
+      ]
+    },
+    "req_o": {
+      "index": "1",
+      "direction": "out",
+      "srcType": "*",
+      "srcSize": "32",
+      "hwRefs": [
+        {
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "req_o",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "req_o_ctrl",
+          "usage": "control",
+          "direction": "out"
+        }
+      ]
+    },
+    "ack_o": {
+      "index": "2",
+      "direction": "in",
+      "srcType": "*",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "ack_o",
+          "usage": "data",
+          "direction": "in"
+        }]
+    },
+    "AEROUT_ADDR": {
+      "index": "3",
+      "direction": "in",
+      "srcType": "*",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "port",
+          "interface": "AEROUT_ADDR",
+          "name": "AEROUT_ADDR",
+          "usage": "data",
+          "direction": "in"
+        }]
+    },
+    "AEROUT_REQ": {
+      "index": "4",
+      "direction": "in",
+      "srcType": "*",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "port",
+          "interface": "AEROUT_REQ",
+          "name": "AEROUT_REQ",
+          "usage": "data",
+          "direction": "in"
+        }]
+    },
+    "AEROUT_ACK": {
+      "index": "5",
+      "direction": "out",
+      "srcType": "*",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "port",
+          "interface": "AEROUT_ACK",
+          "name": "AEROUT_ACK",
+          "usage": "data",
+          "direction": "out"
+        }]
+    },
+    "writeloc": {
+      "index": "6",
+      "direction": "unused",
+      "srcType": "*",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "writeloc",
+          "usage": "data",
+          "direction": "in"
+        }]
+    },
+    "pop_n": {
+      "index": "7",
+      "direction": "out",
+      "srcType": "*",
+      "srcSize": "32",
+      "hwRefs": [
+        {
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "pop_n",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "pop_n_ctrl",
+          "usage": "control",
+          "direction": "out"
+        }
+      ]
+    },
+    "postneuron": {
+      "index": "8",
+      "direction": "out",
+      "srcType": "*",
+      "srcSize": "32",
+      "hwRefs": [
+        {
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "postneuron",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "postneuron_ctrl",
+          "usage": "control",
+          "direction": "out"
+        }
+      ]
+    },
+    "CTRL_SCHED_POP_N": {
+      "index": "9",
+      "direction": "in",
+      "srcType": "*",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "port",
+          "interface": "CTRL_SCHED_POP_N",
+          "name": "CTRL_SCHED_POP_N",
+          "usage": "data",
+          "direction": "in"
+        }]
+    },
+    "CTRL_NEURMEM_ADDR": {
+      "index": "10",
+      "direction": "in",
+      "srcType": "*",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "port",
+          "interface": "CTRL_NEURMEM_ADDR",
+          "name": "CTRL_NEURMEM_ADDR",
+          "usage": "data",
+          "direction": "in"
+        }]
+    },
+    "AEROUT_CTRL_BUSY": {
+      "index": "11",
+      "direction": "unused",
+      "srcType": "*",
+      "srcSize": "32",
+      "hwRefs": [{
+          "type": "port",
+          "interface": "AEROUT_CTRL_BUSY",
+          "name": "AEROUT_CTRL_BUSY",
+          "usage": "data",
+          "direction": "in"
+        }]
+    }
+  },
+  "ReturnValue": {
+    "srcType": "int",
+    "srcSize": "32",
+    "hwRefs": [{
+        "type": "register",
+        "interface": "s_axi_control",
+        "name": "ap_return",
+        "usage": "data",
+        "direction": "out"
+      }]
+  },
+  "HlsSolution": {
+    "FlowTarget": "vivado",
+    "ConfigTcl": [
+      "config_export -format=ip_catalog",
+      "config_export -rtl=verilog"
+    ],
+    "DirectiveTcl": ["set_directive_top odinsigs -name odinsigs"],
+    "ProfileOption": "0",
+    "ProfileType": "none",
+    "KernelName": "odinsigs"
+  },
+  "ClockInfo": {
+    "ClockName": "ap_clk",
+    "ClockPeriod": "10",
+    "Uncertainty": "2.7",
+    "IsCombinational": "0",
+    "II": "3",
+    "Latency": "2"
+  },
+  "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
+  "Ipx": {
+    "Vendor": "xilinx.com",
+    "Library": "hls",
+    "Name": "odinsigs",
+    "Version": "1.0",
+    "DisplayName": "Odinsigs",
+    "Revision": "",
+    "Description": "An IP generated by Vitis HLS",
+    "Taxonomy": "\/VITIS_HLS_IP",
+    "AutoFamilySupport": "",
+    "ZipFile": "xilinx_com_hls_odinsigs_1_0.zip"
+  },
+  "Files": {
+    "CSource": ["..\/..\/top.c"],
+    "Vhdl": [
+      "impl\/vhdl\/odinsigs_control_r_s_axi.vhd",
+      "impl\/vhdl\/odinsigs_control_s_axi.vhd",
+      "impl\/vhdl\/odinsigs_flow_control_loop_pipe.vhd",
+      "impl\/vhdl\/odinsigs_flow_control_loop_pipe_sequential_init.vhd",
+      "impl\/vhdl\/odinsigs_geme1_m_axi.vhd",
+      "impl\/vhdl\/odinsigs_gmem_m_axi.vhd",
+      "impl\/vhdl\/odinsigs_odinsigs_Pipeline_VITIS_LOOP_33_1.vhd",
+      "impl\/vhdl\/odinsigs_odinsigs_Pipeline_VITIS_LOOP_36_1.vhd",
+      "impl\/vhdl\/odinsigs_odinsigs_Pipeline_VITIS_LOOP_38_1.vhd",
+      "impl\/vhdl\/odinsigs.vhd"
+    ],
+    "Verilog": [
+      "impl\/verilog\/odinsigs_control_r_s_axi.v",
+      "impl\/verilog\/odinsigs_control_s_axi.v",
+      "impl\/verilog\/odinsigs_flow_control_loop_pipe.v",
+      "impl\/verilog\/odinsigs_flow_control_loop_pipe_sequential_init.v",
+      "impl\/verilog\/odinsigs_geme1_m_axi.v",
+      "impl\/verilog\/odinsigs_gmem_m_axi.v",
+      "impl\/verilog\/odinsigs_odinsigs_Pipeline_VITIS_LOOP_33_1.v",
+      "impl\/verilog\/odinsigs_odinsigs_Pipeline_VITIS_LOOP_36_1.v",
+      "impl\/verilog\/odinsigs_odinsigs_Pipeline_VITIS_LOOP_38_1.v",
+      "impl\/verilog\/odinsigs.v"
+    ],
+    "SwDriver": [
+      "impl\/misc\/drivers\/odinsigs_v1_0\/data\/odinsigs.mdd",
+      "impl\/misc\/drivers\/odinsigs_v1_0\/data\/odinsigs.tcl",
+      "impl\/misc\/drivers\/odinsigs_v1_0\/src\/Makefile",
+      "impl\/misc\/drivers\/odinsigs_v1_0\/src\/xodinsigs.c",
+      "impl\/misc\/drivers\/odinsigs_v1_0\/src\/xodinsigs.h",
+      "impl\/misc\/drivers\/odinsigs_v1_0\/src\/xodinsigs_hw.h",
+      "impl\/misc\/drivers\/odinsigs_v1_0\/src\/xodinsigs_linux.c",
+      "impl\/misc\/drivers\/odinsigs_v1_0\/src\/xodinsigs_sinit.c"
+    ],
+    "IpMisc": ["impl\/misc\/logo.png"],
+    "CsynthXml": "syn\/report\/csynth.xml",
+    "DebugDir": ".debug",
+    "KernelXml": ".autopilot\/db\/kernel.internal.xml",
+    "Xo": "",
+    "XoHlsDir": "",
+    "ProtoInst": [".debug\/odinsigs.protoinst"]
+  },
+  "SubcoreInfo": {
+    "HasXpmMemory": false,
+    "HasClockedDsp": false,
+    "Ip": []
+  },
+  "Interfaces": {
+    "s_axi_control": {
+      "type": "axi4lite",
+      "busTypeName": "aximm",
+      "mode": "slave",
+      "dataWidth": "32",
+      "addrWidth": "7",
+      "portPrefix": "s_axi_control_",
+      "paramPrefix": "C_S_AXI_CONTROL_",
+      "ports": [
+        "s_axi_control_ARADDR",
+        "s_axi_control_ARREADY",
+        "s_axi_control_ARVALID",
+        "s_axi_control_AWADDR",
+        "s_axi_control_AWREADY",
+        "s_axi_control_AWVALID",
+        "s_axi_control_BREADY",
+        "s_axi_control_BRESP",
+        "s_axi_control_BVALID",
+        "s_axi_control_RDATA",
+        "s_axi_control_RREADY",
+        "s_axi_control_RRESP",
+        "s_axi_control_RVALID",
+        "s_axi_control_WDATA",
+        "s_axi_control_WREADY",
+        "s_axi_control_WSTRB",
+        "s_axi_control_WVALID"
+      ],
+      "registers": [
+        {
+          "offset": "0x00",
+          "name": "CTRL",
+          "access": "RW",
+          "description": "Control signals",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "AP_START",
+              "access": "RW",
+              "description": "Control signal Register for 'ap_start'."
+            },
+            {
+              "offset": "1",
+              "width": "1",
+              "name": "AP_DONE",
+              "access": "R",
+              "description": "Control signal Register for 'ap_done'."
+            },
+            {
+              "offset": "2",
+              "width": "1",
+              "name": "AP_IDLE",
+              "access": "R",
+              "description": "Control signal Register for 'ap_idle'."
+            },
+            {
+              "offset": "3",
+              "width": "1",
+              "name": "AP_READY",
+              "access": "R",
+              "description": "Control signal Register for 'ap_ready'."
+            },
+            {
+              "offset": "4",
+              "width": "3",
+              "name": "RESERVED_1",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            },
+            {
+              "offset": "7",
+              "width": "1",
+              "name": "AUTO_RESTART",
+              "access": "RW",
+              "description": "Control signal Register for 'auto_restart'."
+            },
+            {
+              "offset": "8",
+              "width": "1",
+              "name": "RESERVED_2",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            },
+            {
+              "offset": "9",
+              "width": "1",
+              "name": "RESERVED_3",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            },
+            {
+              "offset": "10",
+              "width": "22",
+              "name": "RESERVED_4",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x04",
+          "name": "GIER",
+          "access": "RW",
+          "description": "Global Interrupt Enable Register",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "Enable",
+              "access": "RW",
+              "description": "Master enable for the device interrupt output to the system interrupt controller: 0 = Disabled, 1 = Enabled"
+            },
+            {
+              "offset": "1",
+              "width": "31",
+              "name": "RESERVED",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x08",
+          "name": "IP_IER",
+          "access": "RW",
+          "description": "IP Interrupt Enable Register",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "CHAN0_INT_EN",
+              "access": "RW",
+              "description": "Enable Channel 0 (ap_done) Interrupt.  0 = Disabled, 1 = Enabled."
+            },
+            {
+              "offset": "1",
+              "width": "1",
+              "name": "CHAN1_INT_EN",
+              "access": "RW",
+              "description": "Enable Channel 1 (ap_ready) Interrupt.  0 = Disabled, 1 = Enabled."
+            },
+            {
+              "offset": "2",
+              "width": "30",
+              "name": "RESERVED",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            },
+            {
+              "offset": "2",
+              "width": "30",
+              "name": "RESERVED",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x0c",
+          "name": "IP_ISR",
+          "access": "RW",
+          "description": "IP Interrupt Status Register",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "CHAN0_INT_ST",
+              "access": "RTOW",
+              "description": "Channel 0 (ap_done) Interrupt Status. 0 = No Channel 0 input interrupt, 1 = Channel 0 input interrup"
+            },
+            {
+              "offset": "1",
+              "width": "1",
+              "name": "CHAN1_INT_ST",
+              "access": "RTOW",
+              "description": "Channel 1 (ap_ready) Interrupt Status. 0 = No Channel 1 input interrupt, 1 = Channel 1 input interrup"
+            },
+            {
+              "offset": "2",
+              "width": "30",
+              "name": "RESERVED",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x10",
+          "name": "ap_return",
+          "access": "R",
+          "description": "Data signal of ap_return",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "ap_return",
+              "access": "R",
+              "description": "Bit 31 to 0 of ap_return"
+            }]
+        },
+        {
+          "offset": "0x18",
+          "name": "addr_o",
+          "access": "R",
+          "description": "Data signal of addr_o",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "addr_o",
+              "access": "R",
+              "description": "Bit 31 to 0 of addr_o"
+            }]
+        },
+        {
+          "offset": "0x1c",
+          "name": "addr_o_ctrl",
+          "access": "R",
+          "description": "Control signal of addr_o",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "addr_o_ap_vld",
+              "access": "R",
+              "description": "Control signal addr_o_ap_vld"
+            },
+            {
+              "offset": "1",
+              "width": "31",
+              "name": "RESERVED",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x28",
+          "name": "req_o",
+          "access": "R",
+          "description": "Data signal of req_o",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "req_o",
+              "access": "R",
+              "description": "Bit 31 to 0 of req_o"
+            }]
+        },
+        {
+          "offset": "0x2c",
+          "name": "req_o_ctrl",
+          "access": "R",
+          "description": "Control signal of req_o",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "req_o_ap_vld",
+              "access": "R",
+              "description": "Control signal req_o_ap_vld"
+            },
+            {
+              "offset": "1",
+              "width": "31",
+              "name": "RESERVED",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x38",
+          "name": "ack_o",
+          "access": "W",
+          "description": "Data signal of ack_o",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "ack_o",
+              "access": "W",
+              "description": "Bit 31 to 0 of ack_o"
+            }]
+        },
+        {
+          "offset": "0x40",
+          "name": "writeloc",
+          "access": "W",
+          "description": "Data signal of writeloc",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "writeloc",
+              "access": "W",
+              "description": "Bit 31 to 0 of writeloc"
+            }]
+        },
+        {
+          "offset": "0x48",
+          "name": "pop_n",
+          "access": "R",
+          "description": "Data signal of pop_n",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "pop_n",
+              "access": "R",
+              "description": "Bit 31 to 0 of pop_n"
+            }]
+        },
+        {
+          "offset": "0x4c",
+          "name": "pop_n_ctrl",
+          "access": "R",
+          "description": "Control signal of pop_n",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "pop_n_ap_vld",
+              "access": "R",
+              "description": "Control signal pop_n_ap_vld"
+            },
+            {
+              "offset": "1",
+              "width": "31",
+              "name": "RESERVED",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        },
+        {
+          "offset": "0x58",
+          "name": "postneuron",
+          "access": "R",
+          "description": "Data signal of postneuron",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "postneuron",
+              "access": "R",
+              "description": "Bit 31 to 0 of postneuron"
+            }]
+        },
+        {
+          "offset": "0x5c",
+          "name": "postneuron_ctrl",
+          "access": "R",
+          "description": "Control signal of postneuron",
+          "range": "32",
+          "fields": [
+            {
+              "offset": "0",
+              "width": "1",
+              "name": "postneuron_ap_vld",
+              "access": "R",
+              "description": "Control signal postneuron_ap_vld"
+            },
+            {
+              "offset": "1",
+              "width": "31",
+              "name": "RESERVED",
+              "access": "R",
+              "description": "Reserved.  0s on read."
+            }
+          ]
+        }
+      ],
+      "constraints": [
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "1",
+          "offset": "24",
+          "argName": "addr_o"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "1",
+          "offset": "40",
+          "argName": "req_o"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "1",
+          "offset": "56",
+          "argName": "ack_o"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "1",
+          "offset": "64",
+          "argName": "writeloc"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "1",
+          "offset": "72",
+          "argName": "pop_n"
+        },
+        {
+          "constraint_type": "pragma interface",
+          "mode": "s_axilite",
+          "register_option": "1",
+          "offset": "88",
+          "argName": "postneuron"
+        }
+      ]
+    },
+    "ap_clk": {
+      "type": "clock",
+      "busTypeName": "clock",
+      "mode": "slave",
+      "busParams": {
+        "ASSOCIATED_BUSIF": "s_axi_control",
+        "ASSOCIATED_RESET": "ap_rst_n"
+      },
+      "portMap": {"ap_clk": "CLK"},
+      "ports": ["ap_clk"]
+    },
+    "ap_rst_n": {
+      "type": "reset",
+      "busTypeName": "reset",
+      "mode": "slave",
+      "busParams": {"POLARITY": "ACTIVE_LOW"},
+      "portMap": {"ap_rst_n": "RST"},
+      "ports": ["ap_rst_n"]
+    },
+    "interrupt": {
+      "type": "interrupt",
+      "busTypeName": "interrupt",
+      "mode": "master",
+      "dataWidth": "1",
+      "busParams": {"SENSITIVITY": "LEVEL_HIGH"},
+      "portMap": {"interrupt": "INTERRUPT"},
+      "ports": ["interrupt"]
+    },
+    "AEROUT_ADDR": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_none",
+      "mode": "slave",
+      "dataWidth": "32",
+      "portMap": {"AEROUT_ADDR": "DATA"},
+      "ports": ["AEROUT_ADDR"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "1",
+          "argName": "AEROUT_ADDR"
+        }]
+    },
+    "AEROUT_REQ": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_none",
+      "mode": "slave",
+      "dataWidth": "32",
+      "portMap": {"AEROUT_REQ": "DATA"},
+      "ports": ["AEROUT_REQ"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "1",
+          "argName": "AEROUT_REQ"
+        }]
+    },
+    "AEROUT_ACK": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_none",
+      "mode": "master",
+      "dataWidth": "32",
+      "portMap": {"AEROUT_ACK": "DATA"},
+      "ports": ["AEROUT_ACK"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "1",
+          "argName": "AEROUT_ACK"
+        }]
+    },
+    "CTRL_SCHED_POP_N": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_none",
+      "mode": "slave",
+      "dataWidth": "32",
+      "portMap": {"CTRL_SCHED_POP_N": "DATA"},
+      "ports": ["CTRL_SCHED_POP_N"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "1",
+          "argName": "CTRL_SCHED_POP_N"
+        }]
+    },
+    "CTRL_NEURMEM_ADDR": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_none",
+      "mode": "slave",
+      "dataWidth": "32",
+      "portMap": {"CTRL_NEURMEM_ADDR": "DATA"},
+      "ports": ["CTRL_NEURMEM_ADDR"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "1",
+          "argName": "CTRL_NEURMEM_ADDR"
+        }]
+    },
+    "AEROUT_CTRL_BUSY": {
+      "type": "data",
+      "busTypeName": "data",
+      "protocol": "ap_none",
+      "mode": "slave",
+      "dataWidth": "32",
+      "portMap": {"AEROUT_CTRL_BUSY": "DATA"},
+      "ports": ["AEROUT_CTRL_BUSY"],
+      "constraints": [{
+          "constraint_type": "pragma interface",
+          "mode": "ap_none",
+          "register_option": "1",
+          "argName": "AEROUT_CTRL_BUSY"
+        }]
+    }
+  },
+  "RtlPorts": {
+    "s_axi_control_AWVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_control_AWREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_control_AWADDR": {
+      "dir": "in",
+      "width": "7"
+    },
+    "s_axi_control_WVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_control_WREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_control_WDATA": {
+      "dir": "in",
+      "width": "32"
+    },
+    "s_axi_control_WSTRB": {
+      "dir": "in",
+      "width": "4"
+    },
+    "s_axi_control_ARVALID": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_control_ARREADY": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_control_ARADDR": {
+      "dir": "in",
+      "width": "7"
+    },
+    "s_axi_control_RVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_control_RREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_control_RDATA": {
+      "dir": "out",
+      "width": "32"
+    },
+    "s_axi_control_RRESP": {
+      "dir": "out",
+      "width": "2"
+    },
+    "s_axi_control_BVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "s_axi_control_BREADY": {
+      "dir": "in",
+      "width": "1"
+    },
+    "s_axi_control_BRESP": {
+      "dir": "out",
+      "width": "2"
+    },
+    "ap_clk": {
+      "dir": "in",
+      "width": "1"
+    },
+    "ap_rst_n": {
+      "dir": "in",
+      "width": "1"
+    },
+    "interrupt": {
+      "dir": "out",
+      "width": "1"
+    },
+    "AEROUT_ADDR": {
+      "dir": "in",
+      "width": "32"
+    },
+    "AEROUT_REQ": {
+      "dir": "in",
+      "width": "32"
+    },
+    "AEROUT_ACK": {
+      "dir": "out",
+      "width": "32"
+    },
+    "CTRL_SCHED_POP_N": {
+      "dir": "in",
+      "width": "32"
+    },
+    "CTRL_NEURMEM_ADDR": {
+      "dir": "in",
+      "width": "32"
+    },
+    "AEROUT_CTRL_BUSY": {
+      "dir": "in",
+      "width": "32"
+    }
+  },
+  "ModuleInfo": {
+    "Hierarchy": {"ModuleName": "odinsigs"},
+    "Info": {"odinsigs": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "0",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      }},
+    "Metrics": {"odinsigs": {
+        "Latency": {
+          "LatencyBest": "2",
+          "LatencyAvg": "2",
+          "LatencyWorst": "2",
+          "PipelineII": "3",
+          "PipelineDepth": "",
+          "PipelineType": "no"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "2.70",
+          "Estimate": "1.000"
+        },
+        "Area": {
+          "BRAM_18K": "0",
+          "AVAIL_BRAM": "1824",
+          "UTIL_BRAM": "0",
+          "FF": "623",
+          "AVAIL_FF": "548160",
+          "UTIL_FF": "~0",
+          "LUT": "510",
+          "AVAIL_LUT": "274080",
+          "UTIL_LUT": "~0",
+          "URAM": "0",
+          "AVAIL_URAM": "0",
+          "UTIL_URAM": "0",
+          "DSP": "0",
+          "AVAIL_DSP": "2520",
+          "UTIL_DSP": "0"
+        }
+      }}
+  },
+  "GenerateBdFiles": "0",
+  "GenData": {
+    "DataVersion": "0.2",
+    "Time": "2022-11-24 21:28:12 +0800",
+    "ToolName": "vitis_hls",
+    "ToolVersion": "2021.1"
+  }
+}

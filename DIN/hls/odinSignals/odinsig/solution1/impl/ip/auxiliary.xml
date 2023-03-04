@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="odinsigs" xd:componentRef="odinsigs" xd:initiationInterval="3" xd:clockPeriod="10" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:returnValue xd:interfaceRef="s_axi_control" xd:busTypeRef="axilite" xd:offset="0x10" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:controlReg xd:name="control" xd:interfaceRef="s_axi_control" xd:busTypeRef="axilite" xd:type="generic_axi_lite" xd:offset="0x0"/>
+  <xd:arg xd:name="*(addr_o)" xd:originalName="addr_o" xd:direction="out" xd:interfaceRef="s_axi_control" xd:busTypeRef="axilite" xd:offset="0x18" xd:statusOffset="0x1C" xd:handshakeRef="ap_vld" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(req_o)" xd:originalName="req_o" xd:direction="out" xd:interfaceRef="s_axi_control" xd:busTypeRef="axilite" xd:offset="0x28" xd:statusOffset="0x2C" xd:handshakeRef="ap_vld" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(ack_o)" xd:originalName="ack_o" xd:direction="in" xd:interfaceRef="s_axi_control" xd:busTypeRef="axilite" xd:offset="0x38" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(AEROUT_ADDR)" xd:originalName="AEROUT_ADDR" xd:direction="in" xd:interfaceRef="AEROUT_ADDR" xd:busTypeRef="register" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(AEROUT_REQ)" xd:originalName="AEROUT_REQ" xd:direction="in" xd:interfaceRef="AEROUT_REQ" xd:busTypeRef="register" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(AEROUT_ACK)" xd:originalName="AEROUT_ACK" xd:direction="out" xd:interfaceRef="AEROUT_ACK" xd:busTypeRef="register" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(writeloc)" xd:originalName="writeloc" xd:direction="in" xd:interfaceRef="s_axi_control" xd:busTypeRef="axilite" xd:offset="0x40" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(pop_n)" xd:originalName="pop_n" xd:direction="out" xd:interfaceRef="s_axi_control" xd:busTypeRef="axilite" xd:offset="0x48" xd:statusOffset="0x4C" xd:handshakeRef="ap_vld" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(postneuron)" xd:originalName="postneuron" xd:direction="out" xd:interfaceRef="s_axi_control" xd:busTypeRef="axilite" xd:offset="0x58" xd:statusOffset="0x5C" xd:handshakeRef="ap_vld" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(CTRL_SCHED_POP_N)" xd:originalName="CTRL_SCHED_POP_N" xd:direction="in" xd:interfaceRef="CTRL_SCHED_POP_N" xd:busTypeRef="register" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(CTRL_NEURMEM_ADDR)" xd:originalName="CTRL_NEURMEM_ADDR" xd:direction="in" xd:interfaceRef="CTRL_NEURMEM_ADDR" xd:busTypeRef="register" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(AEROUT_CTRL_BUSY)" xd:originalName="AEROUT_CTRL_BUSY" xd:direction="in" xd:interfaceRef="AEROUT_CTRL_BUSY" xd:busTypeRef="register" xd:dataWidth="32"/>
+  <xd:latencyEstimates xd:best-case="2" xd:worst-case="2" xd:average-case="2"/>
+  <xd:resourceEstimates xd:LUT="510" xd:FF="623" xd:BRAM="0" xd:DSP="0"/>
+</xd:acceleratorMap>

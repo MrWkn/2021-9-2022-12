@@ -1,0 +1,69 @@
+<root versionMajor = "1" versionMinor = "5">
+  <kernel src_name="odinsigs" language="c" hwCtrl="ap_ctrl_hs" mem_layout="fpga64-xilinx-none">
+    <args>
+      <arg id="0" access_type="w" src_name="addr_o" src_type="*" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="control" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="1" offset="24"/>
+        </hw>
+      </arg>
+      <arg id="1" access_type="w" src_name="req_o" src_type="*" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="control" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="1" offset="40"/>
+        </hw>
+      </arg>
+      <arg id="2" access_type="r" src_name="ack_o" src_type="*" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="control" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="1" offset="56"/>
+        </hw>
+      </arg>
+      <arg id="3" access_type="r" src_name="AEROUT_ADDR" src_type="*" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="AEROUT_ADDR" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="1"/>
+        </hw>
+      </arg>
+      <arg id="4" access_type="r" src_name="AEROUT_REQ" src_type="*" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="AEROUT_REQ" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="1"/>
+        </hw>
+      </arg>
+      <arg id="5" access_type="w" src_name="AEROUT_ACK" src_type="*" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="AEROUT_ACK" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="1"/>
+        </hw>
+      </arg>
+      <arg id="6" access_type="" src_name="writeloc" src_type="*" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="control" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="1" offset="64"/>
+        </hw>
+      </arg>
+      <arg id="7" access_type="w" src_name="pop_n" src_type="*" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="control" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="1" offset="72"/>
+        </hw>
+      </arg>
+      <arg id="8" access_type="w" src_name="postneuron" src_type="*" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="S_AXILite" hw_name="control" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="s_axilite" register_option="1" offset="88"/>
+        </hw>
+      </arg>
+      <arg id="9" access_type="r" src_name="CTRL_SCHED_POP_N" src_type="*" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="CTRL_SCHED_POP_N" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="1"/>
+        </hw>
+      </arg>
+      <arg id="10" access_type="r" src_name="CTRL_NEURMEM_ADDR" src_type="*" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="CTRL_NEURMEM_ADDR" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="1"/>
+        </hw>
+      </arg>
+      <arg id="11" access_type="" src_name="AEROUT_CTRL_BUSY" src_type="*" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="AEROUT_CTRL_BUSY" hw_bitwidth="32" hw_size_or_depth="1">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="1"/>
+        </hw>
+      </arg>
+    </args>
+    <return src_type="int" src_bitwidth="32" offset="0x0">
+      <hw hw_usage="data" hw_interface="S_AXILite" hw_name="control" hw_bitwidth="32"/>
+    </return>
+  </kernel>
+</root>

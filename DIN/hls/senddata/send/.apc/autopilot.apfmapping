@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="top.c" path="D:\vitis_hls_projects\senddata\top.c"/>
+  </source>
+  <testbench>
+    <originFiles name="top_test_ddr.c" path="D:\vitis_hls_projects\senddata\top_test_ddr.c"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

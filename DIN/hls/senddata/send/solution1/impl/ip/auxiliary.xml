@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="send" xd:componentRef="send" xd:initiationInterval="x" xd:clockPeriod="10" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:returnValue xd:interfaceRef="s_axi_control" xd:busTypeRef="axilite" xd:offset="0x10" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:controlReg xd:name="control" xd:interfaceRef="s_axi_control" xd:busTypeRef="axilite" xd:type="generic_axi_lite" xd:offset="0x0"/>
+  <xd:arg xd:name="*(data_ptr)" xd:originalName="data_ptr" xd:direction="inout" xd:interfaceRef="m_axi_gmem" xd:busTypeRef="aximm" xd:dataWidth="32" xd:bufferDirection="in"/>
+  <xd:arg xd:name="data_ptr" xd:originalName="data_ptr" xd:direction="in" xd:interfaceRef="s_axi_control" xd:busTypeRef="axilite" xd:offset="0x18" xd:dataWidth="32" xd:aximmInterfaceRef="m_axi_gmem"/>
+  <xd:arg xd:name="*(data)" xd:originalName="data" xd:direction="out" xd:interfaceRef="data" xd:busTypeRef="register" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(req)" xd:originalName="req" xd:direction="out" xd:interfaceRef="req" xd:busTypeRef="register" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(ack)" xd:originalName="ack" xd:direction="in" xd:interfaceRef="ack" xd:busTypeRef="register" xd:dataWidth="32"/>
+  <xd:arg xd:name="read_loc" xd:originalName="read_loc" xd:direction="in" xd:interfaceRef="s_axi_control" xd:busTypeRef="axilite" xd:offset="0x24" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(SCHED_FULL)" xd:originalName="SCHED_FULL" xd:direction="in" xd:interfaceRef="SCHED_FULL" xd:busTypeRef="register" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(NEUR_EVENT_OUT)" xd:originalName="NEUR_EVENT_OUT" xd:direction="in" xd:interfaceRef="NEUR_EVENT_OUT" xd:busTypeRef="register" xd:dataWidth="32"/>
+  <xd:latencyEstimates xd:best-case="undef" xd:worst-case="undef" xd:average-case="undef"/>
+  <xd:resourceEstimates xd:LUT="1098" xd:FF="961" xd:BRAM="0" xd:DSP="0"/>
+</xd:acceleratorMap>

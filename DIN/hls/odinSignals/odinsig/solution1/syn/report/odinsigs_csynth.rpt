@@ -1,0 +1,168 @@
+
+
+================================================================
+== Vitis HLS Report for 'odinsigs'
+================================================================
+* Date:           Thu Nov 24 21:27:50 2022
+
+* Version:        2021.1 (Build 3247384 on Thu Jun 10 19:36:33 MDT 2021)
+* Project:        odinsig
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynquplus
+* Target device:  xczu9eg-ffvb1156-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  1.000 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+    |   min   |   max   |    min    |    max    | min | max |   Type  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |        2|        2|  20.000 ns|  20.000 ns|    3|    3|       no|
+    +---------+---------+-----------+-----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+------+--------+--------+-----+
+|       Name      | BRAM_18K|  DSP |   FF   |   LUT  | URAM|
++-----------------+---------+------+--------+--------+-----+
+|DSP              |        -|     -|       -|       -|    -|
+|Expression       |        -|     -|       0|       2|    -|
+|FIFO             |        -|     -|       -|       -|    -|
+|Instance         |        0|     -|     296|     488|    0|
+|Memory           |        -|     -|       -|       -|    -|
+|Multiplexer      |        -|     -|       -|      20|    -|
+|Register         |        -|     -|     327|       -|    -|
++-----------------+---------+------+--------+--------+-----+
+|Total            |        0|     0|     623|     510|    0|
++-----------------+---------+------+--------+--------+-----+
+|Available        |     1824|  2520|  548160|  274080|    0|
++-----------------+---------+------+--------+--------+-----+
+|Utilization (%)  |        0|     0|      ~0|      ~0|    0|
++-----------------+---------+------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +-----------------+---------------+---------+----+-----+-----+-----+
+    |     Instance    |     Module    | BRAM_18K| DSP|  FF | LUT | URAM|
+    +-----------------+---------------+---------+----+-----+-----+-----+
+    |control_s_axi_U  |control_s_axi  |        0|   0|  296|  488|    0|
+    +-----------------+---------------+---------+----+-----+-----+-----+
+    |Total            |               |        0|   0|  296|  488|    0|
+    +-----------------+---------------+---------+----+-----+-----+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------+----------+----+---+----+------------+------------+
+    |  Variable Name  | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------+----------+----+---+----+------------+------------+
+    |ap_block_state3  |        or|   0|  0|   2|           1|           1|
+    +-----------------+----------+----+---+----+------------+------------+
+    |Total            |          |   0|  0|   2|           1|           1|
+    +-----------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------+----+-----------+-----+-----------+
+    |    Name   | LUT| Input Size| Bits| Total Bits|
+    +-----------+----+-----------+-----+-----------+
+    |ap_NS_fsm  |  20|          4|    1|          4|
+    +-----------+----+-----------+-----+-----------+
+    |Total      |  20|          4|    1|          4|
+    +-----------+----+-----------+-----+-----------+
+
+    * Register: 
+    +------------------------------+----+----+-----+-----------+
+    |             Name             | FF | LUT| Bits| Const Bits|
+    +------------------------------+----+----+-----+-----------+
+    |AEROUT_ACK_1_data_reg         |  32|   0|   32|          0|
+    |AEROUT_ACK_1_vld_reg          |   0|   0|    1|          1|
+    |AEROUT_ADDR_0_data_reg        |  32|   0|   32|          0|
+    |AEROUT_ADDR_0_vld_reg         |   0|   0|    1|          1|
+    |AEROUT_REQ_0_data_reg         |  32|   0|   32|          0|
+    |AEROUT_REQ_0_vld_reg          |   0|   0|    1|          1|
+    |CTRL_NEURMEM_ADDR_0_data_reg  |  32|   0|   32|          0|
+    |CTRL_NEURMEM_ADDR_0_vld_reg   |   0|   0|    1|          1|
+    |CTRL_SCHED_POP_N_0_data_reg   |  32|   0|   32|          0|
+    |CTRL_SCHED_POP_N_0_vld_reg    |   0|   0|    1|          1|
+    |ack_o_0_data_reg              |  32|   0|   32|          0|
+    |ack_o_0_vld_reg               |   0|   0|    1|          1|
+    |addr_o_1_data_reg             |  32|   0|   32|          0|
+    |addr_o_1_vld_reg              |   1|   0|    1|          0|
+    |ap_CS_fsm                     |   3|   0|    3|          0|
+    |pop_n_1_data_reg              |  32|   0|   32|          0|
+    |pop_n_1_vld_reg               |   1|   0|    1|          0|
+    |postneuron_1_data_reg         |  32|   0|   32|          0|
+    |postneuron_1_vld_reg          |   1|   0|    1|          0|
+    |req_o_1_data_reg              |  32|   0|   32|          0|
+    |req_o_1_vld_reg               |   1|   0|    1|          0|
+    +------------------------------+----+----+-----+-----------+
+    |Total                         | 327|   0|  333|          6|
+    +------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------------+-----+-----+------------+-------------------+--------------+
+|       RTL Ports       | Dir | Bits|  Protocol  |   Source Object   |    C Type    |
++-----------------------+-----+-----+------------+-------------------+--------------+
+|s_axi_control_AWVALID  |   in|    1|       s_axi|            control|       pointer|
+|s_axi_control_AWREADY  |  out|    1|       s_axi|            control|       pointer|
+|s_axi_control_AWADDR   |   in|    7|       s_axi|            control|       pointer|
+|s_axi_control_WVALID   |   in|    1|       s_axi|            control|       pointer|
+|s_axi_control_WREADY   |  out|    1|       s_axi|            control|       pointer|
+|s_axi_control_WDATA    |   in|   32|       s_axi|            control|       pointer|
+|s_axi_control_WSTRB    |   in|    4|       s_axi|            control|       pointer|
+|s_axi_control_ARVALID  |   in|    1|       s_axi|            control|       pointer|
+|s_axi_control_ARREADY  |  out|    1|       s_axi|            control|       pointer|
+|s_axi_control_ARADDR   |   in|    7|       s_axi|            control|       pointer|
+|s_axi_control_RVALID   |  out|    1|       s_axi|            control|       pointer|
+|s_axi_control_RREADY   |   in|    1|       s_axi|            control|       pointer|
+|s_axi_control_RDATA    |  out|   32|       s_axi|            control|       pointer|
+|s_axi_control_RRESP    |  out|    2|       s_axi|            control|       pointer|
+|s_axi_control_BVALID   |  out|    1|       s_axi|            control|       pointer|
+|s_axi_control_BREADY   |   in|    1|       s_axi|            control|       pointer|
+|s_axi_control_BRESP    |  out|    2|       s_axi|            control|       pointer|
+|ap_clk                 |   in|    1|  ap_ctrl_hs|           odinsigs|  return value|
+|ap_rst_n               |   in|    1|  ap_ctrl_hs|           odinsigs|  return value|
+|interrupt              |  out|    1|  ap_ctrl_hs|           odinsigs|  return value|
+|AEROUT_ADDR            |   in|   32|     ap_none|        AEROUT_ADDR|       pointer|
+|AEROUT_REQ             |   in|   32|     ap_none|         AEROUT_REQ|       pointer|
+|AEROUT_ACK             |  out|   32|     ap_none|         AEROUT_ACK|       pointer|
+|CTRL_SCHED_POP_N       |   in|   32|     ap_none|   CTRL_SCHED_POP_N|       pointer|
+|CTRL_NEURMEM_ADDR      |   in|   32|     ap_none|  CTRL_NEURMEM_ADDR|       pointer|
+|AEROUT_CTRL_BUSY       |   in|   32|     ap_none|   AEROUT_CTRL_BUSY|       pointer|
++-----------------------+-----+-----+------------+-------------------+--------------+
+

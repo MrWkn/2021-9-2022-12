@@ -1,0 +1,8 @@
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+WARNING: This core is supplied with a behavioral model. To model cycle-accurate behavior you must run timing simulation.
+WARNING: This core is supplied with a behavioral model. To model cycle-accurate behavior you must run timing simulation.
+WARNING: This core is supplied with a behavioral model. To model cycle-accurate behavior you must run timing simulation.
+WARNING: This core is supplied with a behavioral model. To model cycle-accurate behavior you must run timing simulation.
+WARNING in test_tb.SPI_ROM.inst at time             41600000 ns: 
+Reading from out-of-range address. Max address in test_tb.SPI_ROM.inst is        1039

@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1669296470408">
+  <ports id="1" name="addr_o" type="PortType" originalName="addr_o" coreId="2073585792" bitwidth="32" direction="DirOut">
+    <dataInputObjs>write</dataInputObjs>
+  </ports>
+  <ports id="2" name="req_o" type="PortType" originalName="req_o" coreId="2073585792" bitwidth="32" direction="DirOut">
+    <dataInputObjs>write</dataInputObjs>
+  </ports>
+  <ports id="3" name="ack_o" type="PortType" originalName="ack_o" coreId="1953391988" bitwidth="32">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="4" name="AEROUT_ADDR" type="PortType" originalName="AEROUT_ADDR" coreId="1684890463" bitwidth="32">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="5" name="AEROUT_REQ" type="PortType" originalName="AEROUT_REQ" coreId="1953391988" bitwidth="32">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="6" name="AEROUT_ACK" type="PortType" originalName="AEROUT_ACK" coreId="2073585792" bitwidth="32" direction="DirOut">
+    <dataInputObjs>write</dataInputObjs>
+  </ports>
+  <ports id="7" name="writeloc" type="PortType" originalName="writeloc" coreId="0" bitwidth="32"/>
+  <ports id="8" name="pop_n" type="PortType" originalName="pop_n" coreId="0" bitwidth="32" direction="DirOut">
+    <dataInputObjs>write</dataInputObjs>
+  </ports>
+  <ports id="9" name="postneuron" type="PortType" originalName="postneuron" coreId="0" bitwidth="32" direction="DirOut">
+    <dataInputObjs>write</dataInputObjs>
+  </ports>
+  <ports id="10" name="CTRL_SCHED_POP_N" type="PortType" originalName="CTRL_SCHED_POP_N" coreId="0" bitwidth="32">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="11" name="CTRL_NEURMEM_ADDR" type="PortType" originalName="CTRL_NEURMEM_ADDR" coreId="0" bitwidth="32">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="12" name="AEROUT_CTRL_BUSY" type="PortType" originalName="AEROUT_CTRL_BUSY" coreId="0" bitwidth="32"/>
+  <ports id="22" name="ap_return" direction="DirOut">
+    <dataInputObjs>ret</dataInputObjs>
+  </ports>
+  <edges id="54" source_obj="//@ports.3" sink_obj="//@blocks.0/@node_objs.0"/>
+  <edges id="57" source_obj="//@blocks.0/@node_objs.1" sink_obj="//@ports.0"/>
+  <edges id="58" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@blocks.0/@node_objs.1"/>
+  <edges id="60" source_obj="//@ports.4" sink_obj="//@blocks.0/@node_objs.2"/>
+  <edges id="62" source_obj="//@blocks.0/@node_objs.3" sink_obj="//@ports.1"/>
+  <edges id="63" source_obj="//@blocks.0/@node_objs.2" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="66" source_obj="//@ports.2" sink_obj="//@blocks.0/@node_objs.4"/>
+  <edges id="69" source_obj="//@blocks.0/@node_objs.5" sink_obj="//@ports.5"/>
+  <edges id="70" source_obj="//@blocks.0/@node_objs.4" sink_obj="//@blocks.0/@node_objs.5"/>
+  <edges id="72" source_obj="//@ports.9" sink_obj="//@blocks.0/@node_objs.6"/>
+  <edges id="74" source_obj="//@blocks.0/@node_objs.7" sink_obj="//@ports.7"/>
+  <edges id="75" source_obj="//@blocks.0/@node_objs.6" sink_obj="//@blocks.0/@node_objs.7"/>
+  <edges id="77" source_obj="//@ports.10" sink_obj="//@blocks.0/@node_objs.8"/>
+  <edges id="79" source_obj="//@blocks.0/@node_objs.9" sink_obj="//@ports.8"/>
+  <edges id="80" source_obj="//@blocks.0/@node_objs.8" sink_obj="//@blocks.0/@node_objs.9"/>
+  <edges source_obj="//@blocks.0/@node_objs.10" sink_obj="//@ports.12"/>
+  <blocks id="51" name="odinsigs" type="BlockType">
+    <node_objs xsi:type="cdfg:CdfgNode" id="40" name="AEROUT_ADDR_read" lineNumber="30" fileName="top.c" fileDirectory=".." coreId="71" contextFuncName="odinsigs" bitwidth="32" opcode="read" nodeLatency="1" m_display="0" m_topoIndex="1" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="top.c" linenumber="30" fileDirectory="D:\vitis_hls_projects\odinSignals" functionName="odinsigs"/>
+      <dataInputObjs>AEROUT_ADDR</dataInputObjs>
+      <dataOutputObjs>write</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="41" name="addr_o_write_ln30" lineNumber="30" fileName="top.c" fileDirectory=".." coreName="s_axilite" implIndex="UNSUPPORTED" control="no" coreId="122" contextFuncName="odinsigs" opcode="write" nodeLabel="1.0" nodeLatency="1" m_display="0" m_delay="1.0" m_topoIndex="6" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="top.c" linenumber="30" fileDirectory="D:\vitis_hls_projects\odinSignals" functionName="odinsigs"/>
+      <dataInputObjs>read</dataInputObjs>
+      <dataOutputObjs>addr_o</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="42" name="AEROUT_REQ_read" lineNumber="31" fileName="top.c" fileDirectory=".." coreId="2075074352" contextFuncName="odinsigs" bitwidth="32" opcode="read" nodeLatency="1" m_display="0" m_topoIndex="2" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="top.c" linenumber="31" fileDirectory="D:\vitis_hls_projects\odinSignals" functionName="odinsigs"/>
+      <dataInputObjs>AEROUT_REQ</dataInputObjs>
+      <dataOutputObjs>write</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="43" name="req_o_write_ln31" lineNumber="31" fileName="top.c" fileDirectory=".." coreName="s_axilite" implIndex="UNSUPPORTED" control="no" coreId="122" contextFuncName="odinsigs" opcode="write" nodeLabel="1.0" nodeLatency="1" m_display="0" m_delay="1.0" m_topoIndex="7" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="top.c" linenumber="31" fileDirectory="D:\vitis_hls_projects\odinSignals" functionName="odinsigs"/>
+      <dataInputObjs>read</dataInputObjs>
+      <dataOutputObjs>req_o</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="44" name="ack_o_read" lineNumber="32" fileName="top.c" fileDirectory=".." coreName="s_axilite" implIndex="UNSUPPORTED" control="no" coreId="122" contextFuncName="odinsigs" bitwidth="32" opcode="read" nodeLatency="1" m_display="0" m_delay="1.0" m_topoIndex="3" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="top.c" linenumber="32" fileDirectory="D:\vitis_hls_projects\odinSignals" functionName="odinsigs"/>
+      <dataInputObjs>ack_o</dataInputObjs>
+      <dataOutputObjs>write</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="45" name="AEROUT_ACK_write_ln32" lineNumber="32" fileName="top.c" fileDirectory=".." coreId="1734437220" contextFuncName="odinsigs" opcode="write" nodeLabel="1.0" nodeLatency="1" m_display="0" m_topoIndex="8" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="top.c" linenumber="32" fileDirectory="D:\vitis_hls_projects\odinSignals" functionName="odinsigs"/>
+      <dataInputObjs>read</dataInputObjs>
+      <dataOutputObjs>AEROUT_ACK</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="46" name="CTRL_SCHED_POP_N_read" lineNumber="33" fileName="top.c" fileDirectory=".." coreId="543519861" contextFuncName="odinsigs" bitwidth="32" opcode="read" nodeLatency="1" m_display="0" m_topoIndex="4" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="top.c" linenumber="33" fileDirectory="D:\vitis_hls_projects\odinSignals" functionName="odinsigs"/>
+      <dataInputObjs>CTRL_SCHED_POP_N</dataInputObjs>
+      <dataOutputObjs>write</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="47" name="pop_n_write_ln33" lineNumber="33" fileName="top.c" fileDirectory=".." coreName="s_axilite" implIndex="UNSUPPORTED" control="no" coreId="122" contextFuncName="odinsigs" opcode="write" nodeLabel="1.0" nodeLatency="1" m_display="0" m_delay="1.0" m_topoIndex="9" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="top.c" linenumber="33" fileDirectory="D:\vitis_hls_projects\odinSignals" functionName="odinsigs"/>
+      <dataInputObjs>read</dataInputObjs>
+      <dataOutputObjs>pop_n</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="48" name="CTRL_NEURMEM_ADDR_read" lineNumber="34" fileName="top.c" fileDirectory=".." coreId="3014753" contextFuncName="odinsigs" bitwidth="32" opcode="read" nodeLatency="1" m_display="0" m_topoIndex="5" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="top.c" linenumber="34" fileDirectory="D:\vitis_hls_projects\odinSignals" functionName="odinsigs"/>
+      <dataInputObjs>CTRL_NEURMEM_ADDR</dataInputObjs>
+      <dataOutputObjs>write</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="49" name="postneuron_write_ln34" lineNumber="34" fileName="top.c" fileDirectory=".." coreName="s_axilite" implIndex="UNSUPPORTED" control="no" coreId="122" contextFuncName="odinsigs" opcode="write" nodeLabel="1.0" nodeLatency="1" m_display="0" m_delay="1.0" m_topoIndex="10" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="top.c" linenumber="34" fileDirectory="D:\vitis_hls_projects\odinSignals" functionName="odinsigs"/>
+      <dataInputObjs>read</dataInputObjs>
+      <dataOutputObjs>postneuron</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="50" name="_ln35" lineNumber="35" fileName="top.c" fileDirectory=".." coreId="0" contextFuncName="odinsigs" opcode="ret" nodeLabel="2.0" m_display="0" m_topoIndex="11" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="top.c" linenumber="35" fileDirectory="D:\vitis_hls_projects\odinSignals" functionName="odinsigs"/>
+      <dataOutputObjs>ap_return</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <fileValidLineNumbers fileName="top.c">
+      <validLinenumbers>30</validLinenumbers>
+      <validLinenumbers>31</validLinenumbers>
+      <validLinenumbers>32</validLinenumbers>
+      <validLinenumbers>33</validLinenumbers>
+      <validLinenumbers>34</validLinenumbers>
+      <validLinenumbers>35</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <ScheduleInfo time="0"/>
+  <ScheduleInfo time="1"/>
+  <ScheduleInfo time="2"/>
+  <regnodes realName="AEROUT_ADDR_read_reg_138">
+    <nodeIds>40</nodeIds>
+  </regnodes>
+  <regnodes realName="CTRL_SCHED_POP_N_read_reg_153">
+    <nodeIds>46</nodeIds>
+  </regnodes>
+  <regnodes realName="ack_o_read_reg_148">
+    <nodeIds>44</nodeIds>
+  </regnodes>
+  <regnodes realName="CTRL_NEURMEM_ADDR_read_reg_158">
+    <nodeIds>48</nodeIds>
+  </regnodes>
+  <regnodes realName="AEROUT_REQ_read_reg_143">
+    <nodeIds>42</nodeIds>
+  </regnodes>
+  <ioNodes realName="grp_read_fu_68">
+    <nodeIds>40</nodeIds>
+  </ioNodes>
+  <ioNodes realName="grp_write_fu_114">
+    <nodeIds>45</nodeIds>
+  </ioNodes>
+  <ioNodes realName="grp_write_fu_130">
+    <nodeIds>49</nodeIds>
+  </ioNodes>
+  <ioNodes realName="grp_write_fu_122">
+    <nodeIds>47</nodeIds>
+  </ioNodes>
+  <ioNodes realName="grp_read_fu_80">
+    <nodeIds>44</nodeIds>
+  </ioNodes>
+  <ioNodes realName="grp_write_fu_98">
+    <nodeIds>41</nodeIds>
+  </ioNodes>
+  <ioNodes realName="grp_read_fu_92">
+    <nodeIds>48</nodeIds>
+  </ioNodes>
+  <ioNodes realName="grp_write_fu_106">
+    <nodeIds>43</nodeIds>
+  </ioNodes>
+  <ioNodes realName="grp_read_fu_86">
+    <nodeIds>46</nodeIds>
+  </ioNodes>
+  <ioNodes realName="grp_read_fu_74">
+    <nodeIds>42</nodeIds>
+  </ioNodes>
+  <ioPorts name="AEROUT_ACK">
+    <contents name="write">
+      <nodeIds>45</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="AEROUT_ADDR">
+    <contents name="read">
+      <nodeIds>40</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="AEROUT_CTRL_BUSY"/>
+  <ioPorts name="AEROUT_REQ">
+    <contents name="read">
+      <nodeIds>42</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="CTRL_NEURMEM_ADDR">
+    <contents name="read">
+      <nodeIds>48</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="CTRL_SCHED_POP_N">
+    <contents name="read">
+      <nodeIds>46</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="ack_o">
+    <contents name="read">
+      <nodeIds>44</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="addr_o">
+    <contents name="write">
+      <nodeIds>41</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="pop_n">
+    <contents name="write">
+      <nodeIds>47</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="postneuron">
+    <contents name="write">
+      <nodeIds>49</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="req_o">
+    <contents name="write">
+      <nodeIds>43</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="writeloc"/>
+  <ioPorts name="ap_return">
+    <contents name="ret">
+      <nodeIds>50</nodeIds>
+    </contents>
+  </ioPorts>
+  <fsm>
+    <states id="1">
+      <operations id="40" stage="2" latency="2"/>
+      <operations id="42" stage="2" latency="2"/>
+      <operations id="44" stage="2" latency="2"/>
+      <operations id="46" stage="2" latency="2"/>
+      <operations id="48" stage="2" latency="2"/>
+    </states>
+    <states id="2">
+      <operations id="40" stage="1" latency="2"/>
+      <operations id="41" stage="2" latency="2"/>
+      <operations id="42" stage="1" latency="2"/>
+      <operations id="43" stage="2" latency="2"/>
+      <operations id="44" stage="1" latency="2"/>
+      <operations id="45" stage="2" latency="2"/>
+      <operations id="46" stage="1" latency="2"/>
+      <operations id="47" stage="2" latency="2"/>
+      <operations id="48" stage="1" latency="2"/>
+      <operations id="49" stage="2" latency="2"/>
+    </states>
+    <states id="3">
+      <operations id="13" stage="1" latency="1"/>
+      <operations id="14" stage="1" latency="1"/>
+      <operations id="15" stage="1" latency="1"/>
+      <operations id="16" stage="1" latency="1"/>
+      <operations id="17" stage="1" latency="1"/>
+      <operations id="18" stage="1" latency="1"/>
+      <operations id="19" stage="1" latency="1"/>
+      <operations id="20" stage="1" latency="1"/>
+      <operations id="21" stage="1" latency="1"/>
+      <operations id="22" stage="1" latency="1"/>
+      <operations id="23" stage="1" latency="1"/>
+      <operations id="24" stage="1" latency="1"/>
+      <operations id="25" stage="1" latency="1"/>
+      <operations id="26" stage="1" latency="1"/>
+      <operations id="27" stage="1" latency="1"/>
+      <operations id="28" stage="1" latency="1"/>
+      <operations id="29" stage="1" latency="1"/>
+      <operations id="30" stage="1" latency="1"/>
+      <operations id="31" stage="1" latency="1"/>
+      <operations id="32" stage="1" latency="1"/>
+      <operations id="33" stage="1" latency="1"/>
+      <operations id="34" stage="1" latency="1"/>
+      <operations id="35" stage="1" latency="1"/>
+      <operations id="36" stage="1" latency="1"/>
+      <operations id="37" stage="1" latency="1"/>
+      <operations id="38" stage="1" latency="1"/>
+      <operations id="39" stage="1" latency="1"/>
+      <operations id="41" stage="1" latency="2"/>
+      <operations id="43" stage="1" latency="2"/>
+      <operations id="45" stage="1" latency="2"/>
+      <operations id="47" stage="1" latency="2"/>
+      <operations id="49" stage="1" latency="2"/>
+      <operations id="50" stage="1" latency="1"/>
+    </states>
+    <transitions inState="1" outState="2">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="2" outState="3">
+      <condition id="-1"/>
+    </transitions>
+  </fsm>
+  <CFGRegionsRoot>
+    <cfgRegions mId="1" mTag="odinsigs" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="2" mMaxLatency="2">
+      <basicBlocks>51</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+  </CFGRegionsRoot>
+</cdfg:DBCdfg>

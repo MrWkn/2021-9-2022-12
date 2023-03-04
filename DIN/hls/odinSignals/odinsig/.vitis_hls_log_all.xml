@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Port 'odinsigs/AEROUT_CTRL_BUSY' has no fanin or fanout and is left dangling.&#xD;&#xA;               Please use C simulation to confirm this function argument can be read from or written to." projectName="odinsig" solutionName="solution1" date="2022-11-24T21:27:50.281+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Cannot apply register mode option on port AEROUT_CTRL_BUSY. It is not an AXI-Stream interface." projectName="odinsig" solutionName="solution1" date="2022-11-24T21:27:50.269+0800" type="Warning"/>
+      </synLog>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="test_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="test_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="285221041fs"></ZoomStartTime>
+      <ZoomEndTime time="285276792fs"></ZoomEndTime>
+      <Cursor1Time time="285072641fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="300"></NameColumnWidth>
+      <ValueColumnWidth column_width="117"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="15" />
+   <wvobject fp_name="/test_tb/CLK" type="logic">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tb/RST" type="logic">
+      <obj_property name="ElementShortName">RST</obj_property>
+      <obj_property name="ObjectShortName">RST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tb/MISO" type="logic">
+      <obj_property name="ElementShortName">MISO</obj_property>
+      <obj_property name="ObjectShortName">MISO</obj_property>
+   </wvobject>
+   <wvobject fp_name="group15" type="group">
+      <obj_property name="label">SPI_SIGINAL</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/test_tb/SCK" type="logic">
+         <obj_property name="ElementShortName">SCK</obj_property>
+         <obj_property name="ObjectShortName">SCK</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_tb/MOSI" type="logic">
+         <obj_property name="ElementShortName">MOSI</obj_property>
+         <obj_property name="ObjectShortName">MOSI</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_tb/ODIN_test/spi_slave_0/spi_addr" type="array">
+         <obj_property name="ElementShortName">spi_addr[19:0]</obj_property>
+         <obj_property name="ObjectShortName">spi_addr[19:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_tb/ODIN_test/spi_slave_0/spi_cnt" type="array">
+         <obj_property name="ElementShortName">spi_cnt[5:0]</obj_property>
+         <obj_property name="ObjectShortName">spi_cnt[5:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_tb/ODIN_test/neuron_core_0/SPI_GATE_ACTIVITY_sync" type="logic">
+         <obj_property name="ElementShortName">SPI_GATE_ACTIVITY_sync</obj_property>
+         <obj_property name="ObjectShortName">SPI_GATE_ACTIVITY_sync</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_tb/ODIN_test/spi_slave_0/spi_shift_reg_in" type="array">
+         <obj_property name="ElementShortName">spi_shift_reg_in[19:0]</obj_property>
+         <obj_property name="ObjectShortName">spi_shift_reg_in[19:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/test_tb/AERIN_ADDR" type="array">
+      <obj_property name="ElementShortName">AERIN_ADDR[16:0]</obj_property>
+      <obj_property name="ObjectShortName">AERIN_ADDR[16:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tb/AERIN_REQ" type="logic">
+      <obj_property name="ElementShortName">AERIN_REQ</obj_property>
+      <obj_property name="ObjectShortName">AERIN_REQ</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tb/AERIN_ACK" type="logic">
+      <obj_property name="ElementShortName">AERIN_ACK</obj_property>
+      <obj_property name="ObjectShortName">AERIN_ACK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tb/AEROUT_ADDR" type="array">
+      <obj_property name="ElementShortName">AEROUT_ADDR[7:0]</obj_property>
+      <obj_property name="ObjectShortName">AEROUT_ADDR[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tb/AEROUT_REQ" type="logic">
+      <obj_property name="ElementShortName">AEROUT_REQ</obj_property>
+      <obj_property name="ObjectShortName">AEROUT_REQ</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tb/AEROUT_ACK" type="logic">
+      <obj_property name="ElementShortName">AEROUT_ACK</obj_property>
+      <obj_property name="ObjectShortName">AEROUT_ACK</obj_property>
+   </wvobject>
+   <wvobject fp_name="group86" type="group">
+      <obj_property name="label">controller</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/test_tb/ODIN_test/controller_0/SCHED_DATA_OUT" type="array">
+         <obj_property name="ElementShortName">SCHED_DATA_OUT[12:0]</obj_property>
+         <obj_property name="ObjectShortName">SCHED_DATA_OUT[12:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_tb/ODIN_test/neuron_core_0/NEUR_EVENT_OUT" type="array">
+         <obj_property name="ElementShortName">NEUR_EVENT_OUT[6:0]</obj_property>
+         <obj_property name="ObjectShortName">NEUR_EVENT_OUT[6:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_tb/ODIN_test/neuron_core_0/lif_neuron_0/event_out" type="array">
+         <obj_property name="ElementShortName">event_out[6:0]</obj_property>
+         <obj_property name="ObjectShortName">event_out[6:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_tb/ODIN_test/aer_out_0/AEROUT_CTRL_BUSY" type="logic">
+         <obj_property name="ElementShortName">AEROUT_CTRL_BUSY</obj_property>
+         <obj_property name="ObjectShortName">AEROUT_CTRL_BUSY</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group175" type="group">
+      <obj_property name="label">Neuron</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/test_tb/ODIN_test/neuron_core_0/CTRL_NEURMEM_ADDR" type="array">
+         <obj_property name="ElementShortName">CTRL_NEURMEM_ADDR[7:0]</obj_property>
+         <obj_property name="ObjectShortName">CTRL_NEURMEM_ADDR[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_tb/ODIN_test/neuron_core_0/lif_neuron_0/neuron_state_0/state_core" type="array">
+         <obj_property name="ElementShortName">state_core[7:0]</obj_property>
+         <obj_property name="ObjectShortName">state_core[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_tb/ODIN_test/neuron_core_0/lif_neuron_0/state_core_next" type="array">
+         <obj_property name="ElementShortName">state_core_next[7:0]</obj_property>
+         <obj_property name="ObjectShortName">state_core_next[7:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_tb/ODIN_test/neuron_core_0/lif_neuron_0/neuron_state_0/syn_weight" type="array">
+         <obj_property name="ElementShortName">syn_weight[2:0]</obj_property>
+         <obj_property name="ObjectShortName">syn_weight[2:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_tb/ODIN_test/neuron_core_0/time_ref" type="logic">
+         <obj_property name="ElementShortName">time_ref</obj_property>
+         <obj_property name="ObjectShortName">time_ref</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_tb/ODIN_test/neuron_core_0/syn_event" type="logic">
+         <obj_property name="ElementShortName">syn_event</obj_property>
+         <obj_property name="ObjectShortName">syn_event</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_tb/ODIN_test/neuron_core_0/lif_neuron_0/neuron_state_0/spike_out" type="logic">
+         <obj_property name="ElementShortName">spike_out</obj_property>
+         <obj_property name="ObjectShortName">spike_out</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/test_tb/ODIN_test/spi_slave_0/SPI_OPEN_LOOP" type="logic">
+      <obj_property name="ElementShortName">SPI_OPEN_LOOP</obj_property>
+      <obj_property name="ObjectShortName">SPI_OPEN_LOOP</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tb/ODIN_test/spi_slave_0/SPI_AER_SRC_CTRL_nNEUR" type="logic">
+      <obj_property name="ElementShortName">SPI_AER_SRC_CTRL_nNEUR</obj_property>
+      <obj_property name="ObjectShortName">SPI_AER_SRC_CTRL_nNEUR</obj_property>
+   </wvobject>
+   <wvobject fp_name="group259" type="group">
+      <obj_property name="label">SDSP</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/test_tb/ODIN_test/neuron_core_0/LIF_neuron_v_up_next" type="logic">
+         <obj_property name="ElementShortName">LIF_neuron_v_up_next</obj_property>
+         <obj_property name="ObjectShortName">LIF_neuron_v_up_next</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test_tb/ODIN_test/neuron_core_0/LIF_neuron_v_down_next" type="logic">
+         <obj_property name="ElementShortName">LIF_neuron_v_down_next</obj_property>
+         <obj_property name="ObjectShortName">LIF_neuron_v_down_next</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

@@ -1,0 +1,104 @@
+
+
+================================================================
+== Synthesis Summary Report of 'odinsigs'
+================================================================
++ General Information: 
+    * Date:           Thu Nov 24 21:27:50 2022
+    * Version:        2021.1 (Build 3247384 on Thu Jun 10 19:36:33 MDT 2021)
+    * Project:        odinsig
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: zynquplus
+    * Target device:  xczu9eg-ffvb1156-2-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +------------+------+------+---------+--------+----------+---------+------+----------+------+----+-----------+-----------+-----+
+    |   Modules  | Issue|      | Latency | Latency| Iteration|         | Trip |          |      |    |           |           |     |
+    |   & Loops  | Type | Slack| (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined| BRAM | DSP|     FF    |    LUT    | URAM|
+    +------------+------+------+---------+--------+----------+---------+------+----------+------+----+-----------+-----------+-----+
+    |+ odinsigs  |     -|  6.30|        2|  20.000|         -|        3|     -|        no|     -|   -|  623 (~0%)|  510 (~0%)|    -|
+    +------------+------+------+---------+--------+----------+---------+------+----------+------+----+-----------+-----------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* S_AXILITE
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 7             | 24     | 1        |
++---------------+------------+---------------+--------+----------+
+
+* REGISTER
++-------------------+---------+----------+
+| Interface         | Mode    | Bitwidth |
++-------------------+---------+----------+
+| AEROUT_ACK        | ap_none | 32       |
+| AEROUT_ADDR       | ap_none | 32       |
+| AEROUT_CTRL_BUSY  | ap_none | 32       |
+| AEROUT_REQ        | ap_none | 32       |
+| CTRL_NEURMEM_ADDR | ap_none | 32       |
+| CTRL_SCHED_POP_N  | ap_none | 32       |
++-------------------+---------+----------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------+
+| Interface | Type       | Ports     |
++-----------+------------+-----------+
+| ap_clk    | clock      | ap_clk    |
+| ap_rst_n  | reset      | ap_rst_n  |
+| interrupt | interrupt  | interrupt |
+| ap_ctrl   | ap_ctrl_hs |           |
++-----------+------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++-------------------+-----------+----------+
+| Argument          | Direction | Datatype |
++-------------------+-----------+----------+
+| addr_o            | out       | pointer  |
+| req_o             | out       | pointer  |
+| ack_o             | in        | pointer  |
+| AEROUT_ADDR       | in        | pointer  |
+| AEROUT_REQ        | in        | pointer  |
+| AEROUT_ACK        | out       | pointer  |
+| writeloc          | unused    | pointer  |
+| pop_n             | out       | pointer  |
+| postneuron        | out       | pointer  |
+| CTRL_SCHED_POP_N  | in        | pointer  |
+| CTRL_NEURMEM_ADDR | in        | pointer  |
+| AEROUT_CTRL_BUSY  | unused    | pointer  |
+| return            | out       | int      |
++-------------------+-----------+----------+
+
+* SW-to-HW Mapping
++-------------------+-------------------------------+----------+-----------------------+
+| Argument          | HW Name                       | HW Type  | HW Info               |
++-------------------+-------------------------------+----------+-----------------------+
+| addr_o            | s_axi_control addr_o          | register | offset=0x18, range=32 |
+| addr_o            | s_axi_control addr_o_ctrl     | register | offset=0x1c, range=32 |
+| req_o             | s_axi_control req_o           | register | offset=0x28, range=32 |
+| req_o             | s_axi_control req_o_ctrl      | register | offset=0x2c, range=32 |
+| ack_o             | s_axi_control ack_o           | register | offset=0x38, range=32 |
+| AEROUT_ADDR       | AEROUT_ADDR                   | port     |                       |
+| AEROUT_REQ        | AEROUT_REQ                    | port     |                       |
+| AEROUT_ACK        | AEROUT_ACK                    | port     |                       |
+| writeloc          | s_axi_control writeloc        | register | offset=0x40, range=32 |
+| pop_n             | s_axi_control pop_n           | register | offset=0x48, range=32 |
+| pop_n             | s_axi_control pop_n_ctrl      | register | offset=0x4c, range=32 |
+| postneuron        | s_axi_control postneuron      | register | offset=0x58, range=32 |
+| postneuron        | s_axi_control postneuron_ctrl | register | offset=0x5c, range=32 |
+| CTRL_SCHED_POP_N  | CTRL_SCHED_POP_N              | port     |                       |
+| CTRL_NEURMEM_ADDR | CTRL_NEURMEM_ADDR             | port     |                       |
+| AEROUT_CTRL_BUSY  | AEROUT_CTRL_BUSY              | port     |                       |
+| return            | s_axi_control ap_return       | register | offset=0x10, range=32 |
++-------------------+-------------------------------+----------+-----------------------+
+
+
